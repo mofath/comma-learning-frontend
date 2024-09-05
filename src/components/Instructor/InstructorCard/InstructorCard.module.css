@@ -1,0 +1,91 @@
+.instructor-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: var(--space-xs);
+    gap: 20px;
+}
+
+
+.aside {
+    position: relative;
+}
+
+.favorite-button {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+
+.top-rated-badge {
+    background: var(--color-neutral-200);
+    color: var(--color-primary-100);
+    font-family: var(--font-aclonica);
+    font-size: var(--space-sm);
+    font-weight: 500;
+    border-radius: 4px;
+    position: absolute;
+    top: var(--space-xs);
+    left: var(--space-sm);
+    z-index: 10;
+    padding: var(--space-xxs);
+}
+
+.image-container {
+    min-height: 194px;
+    overflow: hidden;
+}
+
+/* .image {} */
+
+
+.title {
+    font-weight: 700;
+    font-size: 16px;
+    color: varvar(--color-primary-100);
+}
+
+.subtitle {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(11, 36, 63);
+    opacity: 0.8;
+}
+
+.info {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.position {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--color-primary-100);
+    opacity: 0.8;
+}
+
+.position span {
+    font-weight: 800;
+}
+
+.session-review {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sessions {
+    font-weight: 500;
+
+    color: var(--color-primary-100);
+}
+
+.reviews {
+    font-size: var(--space-sm);
+    color: var(--color-primary-100);
+
+    opacity: 0.5;
+}

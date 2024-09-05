@@ -1,0 +1,18 @@
+.course-video-description {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+}
+
+.course-video-description h2 {
+	font-size: var(--text-4xl);
+	font-weight: var(--fw-medium);
+	margin-bottom: var(--space-xs);
+}
+
+.course-video-description__header p {
+	font-size: var(--text-2xl);
+	font-weight: var(--fw-medium);
+	color: var(--color-text-400);
+}
+

@@ -1,0 +1,15 @@
+.course-reviews-section__content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+}
+
+.course-reviews-input__star-rating {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	height: 35px;
+	gap: var(--space-sm);
+	margin-bottom: var(--space-xs);
+}
+

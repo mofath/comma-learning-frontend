@@ -1,0 +1,10 @@
+.review {
+	display: flex;
+	flex-direction: column;
+	padding-bottom: var(--space-md);
+}
+
+.review:not(:last-of-type) {
+	border-bottom: 1px solid var(--color-border-100);
+}
+

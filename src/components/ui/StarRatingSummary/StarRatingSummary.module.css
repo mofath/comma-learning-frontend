@@ -1,0 +1,10 @@
+.star-rating-summary {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: var(--space-sm);
+}
+
+.star-rating-summary__rating {
+	font-weight: bold;
+}

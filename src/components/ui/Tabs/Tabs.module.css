@@ -1,0 +1,17 @@
+.tabs {
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-lg);
+}
+
+.tabs__tab {
+  color: var(--color-text-400);
+  font-size: var(--text-lg);
+  font-weight: var(--fw-regular);
+  cursor: pointer;
+}
+
+.tabs__tab--active {
+  color: var(--color-primary-100);
+  font-weight: var(--fw-bold);
+}

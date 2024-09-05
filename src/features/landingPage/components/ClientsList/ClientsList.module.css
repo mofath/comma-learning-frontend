@@ -1,0 +1,30 @@
+.clients {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 60px;
+    padding: 65px;
+    background: linear-gradient(180deg, rgba(255, 224, 200, .2) 0%, rgba(255, 253, 251, 0) 100%);
+}
+
+.clients__header {
+    color: var(--color-primary-100);
+}
+
+.clients__list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    width: 80%;
+}
+
+.clients__sub-header {
+    color: var(--color-primary-100);
+    padding: 10px 45px;
+    background: #FFE1C9;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 22px;
+}

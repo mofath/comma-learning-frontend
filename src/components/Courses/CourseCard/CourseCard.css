@@ -1,0 +1,143 @@
+.course-card {
+
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	border-radius: 5px;
+	gap: 20px;
+}
+
+.course-card--progress {
+	gap: var(--space-xs);
+}
+
+
+.aside {
+
+	position: relative;
+}
+
+.favorite-button {
+	position: absolute;
+	top: var(--space-md);
+	left: var(--space-sm);
+	z-index: 1;
+	width: 40px;
+	height: 40px;
+	background: rgba(11, 36, 63, .78);
+}
+
+
+.HoverCardContent {
+	z-index: 2;
+	transform-origin: var(--radix-hover-card-content-transform-origin);
+	animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+	from {
+		opacity: 0;
+		transform: scale(0);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.image-container {
+	min-height: 194px;
+	overflow: hidden;
+
+}
+
+.image {
+	border-radius: 20px;
+}
+
+.title {
+	font-weight: 700;
+	font-size: 16px;
+	color: var(--color-primary-100);
+}
+
+.subtitle {
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 20px;
+	color: rgb(11, 36, 63);
+	opacity: 0.8;
+}
+
+.rating {
+	display: flex;
+	gap: 5px;
+	align-items: center;
+}
+
+.rating-value {
+	font-weight: 500;
+	font-size: 14px;
+	font-family: var(--font-aclonica);
+	color: var(--color-primary-100);
+	opacity: 0.8;
+}
+
+/* .rating-stars {} */
+
+.reviews-count {
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 20px;
+	color: var(--color-primary-100);
+	opacity: 0.4;
+	margin-inline-start: 15px;
+}
+
+.time-location {
+	display: flex;
+	justify-content: space-between;
+}
+
+.time,
+.location {
+	gap: var(--space-xxs);
+	display: flex;
+	align-items: center;
+}
+
+.time>span,
+.location>span {
+	color: (--color-primary-100);
+	opacity: .4;
+}
+
+.pricing {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	width: 100%;
+}
+
+.price {
+	/* font-family: "DM Sans"; */
+	font-weight: 700;
+	font-size: 16px;
+	color: var(--color-primary-100);
+}
+
+.discount-price {
+	font-weight: 500;
+	font-size: 16px;
+	text-decoration-line: line-through;
+	color: var(--color-primary-100);
+	opacity: 0.4;
+}
+
+.add-to-cart-button {
+	width: fit-content;
+	padding: 0;
+	margin-left: auto;
+	appearance: none;
+}

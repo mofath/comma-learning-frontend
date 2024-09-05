@@ -1,0 +1,31 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "prettier"
+  ],
+  "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "args": "none"
+      }
+    ],
+    "react/no-unescaped-entities": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/components/ui/*.tsx"
+      ],
+      "rules": {
+        "react/prop-types": [
+          "off"
+        ]
+      }
+    }
+  ]
+}

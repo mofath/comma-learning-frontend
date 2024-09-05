@@ -1,0 +1,10 @@
+.video-player__video {
+	border-radius: 1rem; /* 16px */
+	width: 100%;
+	height: auto;
+}
+
+.video-player__video[poster] {
+	object-fit: cover;
+}
+
