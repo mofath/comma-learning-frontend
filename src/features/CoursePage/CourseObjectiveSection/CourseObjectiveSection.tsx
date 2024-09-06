@@ -12,7 +12,7 @@ const CourseObjectiveSection: React.FC<CourseObjectiveSectionProps> = ({
 		<div className={styles["course-objective-section"]}>
 			<h2>By the end of this course, you will be able to:</h2>
 			<ol className={styles["objective-list"]}>
-				{objectives.map((objective, index) => {
+				{objectives?.map((objective, index) => {
 					return <li key={index}>{objective}</li>;
 				})}
 			</ol>

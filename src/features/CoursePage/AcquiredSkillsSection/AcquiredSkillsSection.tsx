@@ -13,7 +13,7 @@ const AcquiredSkillsSection: React.FC<AcquiredSkillsSectionProps> = ({
 		<div className={styles["acquired-skills"]}>
 			<h2>Acquired Skills</h2>
 			<div className={styles["skills-list"]}>
-				{skills.map((skill, index) => {
+				{skills?.map((skill, index) => {
 					return <Chip key={index} text={skill} />;
 				})}
 			</div>

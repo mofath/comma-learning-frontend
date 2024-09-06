@@ -52,11 +52,6 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 
 	if (isLoading) return <p>Loading...</p>;
 
-	console.log(111111111);
-	console.log(courseData);
-
-	console.log(111111111);
-
 	return (
 		<div className={`${styles["course-review-page"]} container`}>
 			{/* Top section */}
@@ -80,7 +75,7 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 				{/* Right side section */}
 				<div className={styles["course-review-page__right-side"]}>
 					<CourseContentSection
-						chapters={courseData.chapters}
+						chapters={courseData?.chapters || []}
 						isUserAlreadyEnrolled={isUserEnrolled?.enrolled || false}
 						setActiveChapterIndex={setActiveChapterIndex}
 						completedChapter={[]}

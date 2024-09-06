@@ -15,11 +15,11 @@ const CourseInstructorSection: React.FC<CourseInstructorSectionProps> = ({
 			<h2>Course Instructor</h2>
 			<UserAvatarCard
 				user={{
-					id: instructor.id,
-					fullName: instructor.name,
-					avatarUrl: instructor.avatarUrl as any,
-					jobTitle: instructor.jobTitle,
-					organization: instructor.organization,
+					id: instructor?.id,
+					fullName: instructor?.name,
+					avatarUrl: instructor?.avatarUrl as any,
+					jobTitle: instructor?.jobTitle,
+					organization: instructor?.organization,
 				}}
 				isInstructor={true}
 			/>
