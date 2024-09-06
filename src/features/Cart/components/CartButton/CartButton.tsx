@@ -8,7 +8,6 @@ import { useCartQuery } from "@/services/cart.service";
 
 const CartButton = () => {
 	const navigation = useRouter();
-
 	const { data, isLoading } = useCartQuery();
 
 	if (isLoading) return <div>Loading...</div>;
@@ -21,7 +20,7 @@ const CartButton = () => {
 					navigation.push("/cart");
 				}}
 			>
-				<Image src="/images/bag.svg" alt="Cart" width={24} height={24} />
+				<Image src="/svg/bag.svg" alt="Cart" width={24} height={24} />
 				<span className={styles.badge}>{data?.items?.length || 0}</span>
 			</button>
 		</HoverCard>

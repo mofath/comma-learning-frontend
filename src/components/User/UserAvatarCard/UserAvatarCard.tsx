@@ -40,7 +40,7 @@ const UserAvatarCard: React.FC<UserAvatarCardProps> = ({
 				</div>
 				<div className={styles["user-role"]}>
 					{isInstructor && (
-						<Image src="/images/bag.svg" alt="role" width={20} height={20} />
+						<Image src="/svg/bag.svg" alt="role" width={20} height={20} style={{marginRight : "8px"}} />
 					)}
 					<p>
 						<span>{user.jobTitle}</span>

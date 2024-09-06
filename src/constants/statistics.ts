@@ -2,31 +2,31 @@ export const STATISTICS = [
 	{
 		name: "trainees",
 		value: 1200,
-		icon: "/images/trainee.svg",
+		icon: "/svg/trainee.svg",
 	},
 	{
 		name: "visitors",
 		value: 1933,
-		icon: "/images/visitor.svg",
+		icon: "/svg/visitor.svg",
 	},
 	{
 		name: "trainers",
 		value: 64,
-		icon: "/images/trainer.svg",
+		icon: "/svg/trainer.svg",
 	},
 	{
 		name: "courses",
 		value: 1209,
-		icon: "/images/course.svg",
+		icon: "/svg/course.svg",
 	},
 	{
 		name: "locations",
 		value: 1933,
-		icon: "/images/location.svg",
+		icon: "/svg/location.svg",
 	},
 	{
 		name: "partners",
 		value: 1202,
-		icon: "/images/partner.svg",
+		icon: "/svg/partner.svg",
 	},
 ];

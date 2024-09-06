@@ -16,7 +16,7 @@ const CourseCurriculumSection: React.FC<CourseCurriculumSectionProps> = ({
 		<div className={styles["course-curriculum-section"]}>
 			<h2>{sectionTitle}</h2>
 			<div className={styles["course-curriculum-section__list"]}>
-				{chapters.map((chapter, index) => (
+				{chapters?.map((chapter, index) => (
 					<Collapsible key={index} title={chapter.title}>
 						<div className={styles["course-curriculum-section__item__content"]}>
 							<p>{chapter.description}</p>

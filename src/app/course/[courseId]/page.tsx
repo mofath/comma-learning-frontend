@@ -9,7 +9,6 @@ import AcquiredSkillsSection from "@/features/CoursePage/AcquiredSkillsSection/A
 import CourseCurriculumSection from "@/features/CoursePage/CourseCurriculumSection/CourseCurriculumSection";
 import CourseInstructorSection from "@/features/CoursePage/CourseInstructorSection/CourseInstructorSection";
 import CourseObjectiveSection from "@/features/CoursePage/CourseObjectiveSection/CourseObjectiveSection";
-import { courseData } from "@/__mocks__/data/course";
 import styles from "./CoursePreviewPage.module.css";
 import {
 	useCheckEnrollmentQuery,
@@ -30,17 +29,17 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 	const [activeChapterIndex, setActiveChapterIndex] = useState(0);
 	const { courseId } = useParams<{ courseId: string }>();
 	const { authUser } = useAuthUser();
+
 	const user = useSelector(selectedAuthUser);
 	const { data: isUserEnrolled } = useCheckEnrollmentQuery({
 		userId: user?.id || "",
 		courseId,
 	});
-	console.log(isUserEnrolled?.enrolled);
-	const { data: courseData2, isLoading } = useCourseQuery({ id: courseId });
-	const [courseInfo] = useState({
-		...courseData,
-	});
+
+	const { data: courseData, isLoading } = useCourseQuery({ id: courseId });
+
 	const [viewCourse] = useViewCourseMutation();
+
 	useEffect(
 		() => {
 			if (courseData) {
@@ -50,7 +49,13 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[courseData]
 	);
+
 	if (isLoading) return <p>Loading...</p>;
+
+	console.log(111111111);
+	console.log(courseData);
+
+	console.log(111111111);
 
 	return (
 		<div className={`${styles["course-review-page"]} container`}>
@@ -59,12 +64,12 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 				{/* Left side section */}
 				<div className={styles["course-review-page__left-side"]}>
 					<VideoPlayer
-						videoUrl={courseInfo?.chapters[activeChapterIndex]?.videoUrl}
-						poster={!watchMode ? courseInfo?.posterUrl : undefined}
+						videoUrl={courseData?.chapters[activeChapterIndex]?.videoUrl}
+						poster={!watchMode ? courseData?.posterUrl : undefined}
 					/>
 					<CourseVideoDescription
-						description={courseData2.description}
-						category={courseData2.categories?.[0]?.name}
+						description={courseData?.description}
+						category={courseData?.category?.name}
 					/>
 					<CourseReviewsSection
 						courseId={courseId}
@@ -75,7 +80,7 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 				{/* Right side section */}
 				<div className={styles["course-review-page__right-side"]}>
 					<CourseContentSection
-						chapters={courseData2.sections[0].chapters}
+						chapters={courseData.chapters}
 						isUserAlreadyEnrolled={isUserEnrolled?.enrolled || false}
 						setActiveChapterIndex={setActiveChapterIndex}
 						completedChapter={[]}
@@ -83,19 +88,19 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 					<CourseEnrollSection
 						courseId={Number(courseId)}
 						isUserAlreadyEnrolled={isUserEnrolled?.enrolled || false}
-						cost={courseData2?.price}
-						instructorName={courseData2?.instructor.name}
-						rate={courseData2?.totalRating}
-						level={courseData2?.instructor.level}
-						duration={`${courseData2?.duration / 60} Hours`}
+						cost={courseData?.price}
+						instructorName={courseData?.instructor.name}
+						rate={courseData?.totalRating}
+						level={courseData?.instructor.level}
+						duration={courseData?.duration}
 					/>
 				</div>
 			</div>
 			{/* Bottom section */}
 			<div className={styles["course-review-page__bottom-section"]}>
-				<AcquiredSkillsSection skills={courseData2?.skills} />
+				<AcquiredSkillsSection skills={courseData?.skills} />
 				<h2>Course Content</h2>
-				{courseData2?.sections.map((section: any) => {
+				{courseData?.chapters.map((section: any) => {
 					return (
 						<CourseCurriculumSection
 							key={section.id}
@@ -104,10 +109,10 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 						/>
 					);
 				})}
-				<CourseInstructorSection instructor={courseData2?.instructor} />
-				<CourseObjectiveSection objectives={courseData2?.objectives} />
+				<CourseInstructorSection instructor={courseData?.instructor} />
+				<CourseObjectiveSection objectives={courseData?.objectives} />
 				{/* <RelatedCoursesSection courses={coursesListData} /> */}
-				<CourseList category={courseData2?.categories?.[0].name} />
+				{/* <CourseList category={courseData?.categories?.[0].name} /> */}
 			</div>
 		</div>
 	);
