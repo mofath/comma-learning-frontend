@@ -54,8 +54,7 @@ export interface CourseListItem {
 	id: number;
 	posterUrl: string;
 	instructor: {
-		firstName: string;
-		lastName: string;
+		name: string;
 		id: number;
 	};
 	price: number;

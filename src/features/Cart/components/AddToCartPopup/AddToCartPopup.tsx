@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./AddToCartPopUp.module.css";
 import Button from "@/components/ui/Button/Button";
+
 type Props = {
 	title: string;
 	status?: string;
