@@ -91,7 +91,6 @@
 .statistics__value {
     font-size: 48px;
     font-weight: 800;
-    font-family: var(--font-aclonica);
 }
 
 @media (max-width: 768px) {

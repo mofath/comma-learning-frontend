@@ -21,7 +21,6 @@
 }
 
 .heading {
-    font-family: var(--font-aclonica);
     font-size: var(--space-xl);
     text-align: center;
 }

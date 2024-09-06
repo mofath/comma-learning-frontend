@@ -15,10 +15,6 @@
 
 }
 
-.register-btn {
-    font-family: var(--font-aclonica);
-}
-
 .nav__button-group {
     display: flex;
     align-items: center;

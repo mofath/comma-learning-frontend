@@ -1,63 +1,58 @@
 .card {
-
-    width: 319px;
-    height: 383px;
-    padding: var(--space-md);
-    background: var(--color-white);
-    border: 1px solid #C4C4C4;
-    box-shadow: 0px 4px 23.6px rgba(131, 131, 131, 0.25);
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
+	width: 319px;
+	height: 383px;
+	padding: var(--space-md);
+	background: var(--color-white);
+	border: 1px solid #c4c4c4;
+	box-shadow: 0px 4px 23.6px rgba(131, 131, 131, 0.25);
+	border-radius: 4px;
+	display: flex;
+	flex-direction: column;
 }
 
 .header {
-    font-family: var(--font-aclonica);
-    font-size: var(--space-md);
+	font-size: var(--space-md);
 }
 
 .info {
-    display: flex;
-    gap: var(--space-xs);
-    align-items: center;
-    margin-bottom: var(--space-lg);
-    margin-top: var(--space-md);
+	display: flex;
+	gap: var(--space-xs);
+	align-items: center;
+	margin-bottom: var(--space-lg);
+	margin-top: var(--space-md);
 }
 
 .status-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    width: 82px;
-    height: 24px;
-    background: #FFE1C9;
-    border-radius: 2px;
-    font-weight: 500;
-    font-size: var(--space-sm);
-    color: var(--color-primary-100);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2px;
+	width: 82px;
+	height: 24px;
+	background: #ffe1c9;
+	border-radius: 2px;
+	font-weight: 500;
+	font-size: var(--space-sm);
+	color: var(--color-primary-100);
 }
 
 .last-updated,
 .duration {
-    font-weight: 400;
-    font-size: var(--space-sm);
-    color: var(--color-primary-100);
-    opacity: 0.5;
+	font-weight: 400;
+	font-size: var(--space-sm);
+	color: var(--color-primary-100);
+	opacity: 0.5;
 }
 
 .description {
-    font-weight: 400;
-    font-size: 14px;
-    color: var(--color-primary-100);
-    margin-top: var(--space-sm);
-    opacity: 0.78;
+	font-weight: 400;
+	font-size: 14px;
+	color: var(--color-primary-100);
+	margin-top: var(--space-sm);
+	opacity: 0.78;
 }
 
 .actions {
-    margin-top: auto;
+	margin-top: auto;
 }
 
-.add-to-cart-button {
-    font-family: var(--font-aclonica);
-}

@@ -21,7 +21,6 @@
 .top-rated-badge {
     background: var(--color-neutral-200);
     color: var(--color-primary-100);
-    font-family: var(--font-aclonica);
     font-size: var(--space-sm);
     font-weight: 500;
     border-radius: 4px;

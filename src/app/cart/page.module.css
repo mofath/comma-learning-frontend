@@ -1,5 +1,4 @@
 .header {
-    font-family: var(--font-nunito-sans);
     font-weight: 700;
     text-transform: capitalize;
     font-size: var(--space-xl);
@@ -25,7 +24,6 @@
 }
 
 .courses-header {
-    font-family: var(--font-aclonica);
     font-weight: 700;
     text-transform: capitalize;
     font-size: var(--space-xl);

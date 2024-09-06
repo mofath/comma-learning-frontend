@@ -22,7 +22,6 @@
 }
 
 .header {
-    font-family: var(--font-nunito-sans);
     font-weight: 700;
     font-size: var(--space-md);
     color: #0B243F;
@@ -31,15 +30,10 @@
 }
 
 .total_price {
-    font-family: var(--font-nunito-sans);
     font-style: normal;
     font-weight: 700;
     font-size: var(--space-xl);
     color: #0B243F;
-}
-
-.checkout-btn {
-    font-family: var(--font-aclonica);
 }
 
 @media (max-width: 1280px) {

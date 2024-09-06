@@ -11,7 +11,7 @@
 }
 
 html {
-  font-family: var(--font-nunito-sans);
+  font-family: inherit;
 }
 
 html,
