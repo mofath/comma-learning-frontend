@@ -20,6 +20,7 @@ export default async function Home({
 			<h2 className="section-header">
 				Choose category to learn more about the courses in this category
 			</h2>
+			{/* Featured course */}
 			<article className="container courses-collection">
 				<article>
 					<h2 className="courses-header heading-1">Recorded Courses</h2>

@@ -2,11 +2,12 @@ import React from "react";
 // import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import styles from "./NavigationBar.module.css";
 import Link from "next/link";
+
 export default function NavigationBar() {
 	const navigationLinks = [
-		{ name: "offline course", url: "/courses/offline" },
-		{ name: "online course", url: "/courses/online" },
-		{ name: "recorded course", url: "/courses/recorded" },
+		{ name: "Offline Course", url: "/courses/offline" },
+		{ name: "Online Course", url: "/courses/online" },
+		{ name: "Recorded Course", url: "/courses/recorded" },
 		{ name: "Learning Path", url: "/learning-path" },
 		{ name: "Podcasts", url: "/podcasts" },
 	];

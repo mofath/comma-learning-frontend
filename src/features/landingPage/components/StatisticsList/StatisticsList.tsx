@@ -1,23 +1,22 @@
 import Image from "next/image";
-import styles from "./StatisticsList.module.css";
 import { STATISTICS } from "@/constants/statistics";
+import "./StatisticsList.css";
 
 export default async function StatisticsList() {
 	const statistics: { name: string; value: number; icon: string }[] =
 		STATISTICS;
 	return (
-		<div className={`${styles["statistics-section"]}`}>
-			<h2 className={styles["statistics__header"]}>most importants clients</h2>
-
-			<div className={styles["statistics__sub-header"]}>
+		<div className="statistics-section">
+			<h2 className="statistics__header">Most importants clients</h2>
+			<div className="statistics__sub-header">
 				We measure our Success by our driven values
 			</div>
-			<div className={styles["statistics-list"]}>
+			<div className="statistics-list">
 				{statistics.map((statistic, index) => (
-					<div key={index} className={styles["statistics-item"]}>
-						<div className={styles["statistics__title"]}>
+					<div key={index} className="statistics-item">
+						<div className="statistics__title">
 							<Image
-								className={styles["statistics__icon"]}
+								className="statistics__icon"
 								src={statistic.icon}
 								alt={statistic.name}
 								width={25}
@@ -25,9 +24,7 @@ export default async function StatisticsList() {
 							/>
 							<p>{statistic.name}</p>
 						</div>
-						<div className={styles["statistics__value"]}>
-							+{statistic.value}
-						</div>
+						<div className="statistics__value">+{statistic.value}</div>
 					</div>
 				))}
 			</div>

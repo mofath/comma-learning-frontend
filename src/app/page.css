@@ -16,7 +16,8 @@
 .courses-collection {
 	display: flex;
 	flex-direction: column;
-	gap: 120px;
+	gap: var(--space-6xl);
+	padding-bottom: var(--space-6xl);
 }
 
 .courses-header {

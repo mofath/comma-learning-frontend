@@ -1,6 +1,7 @@
 import Button from "@/components/ui/Button/Button";
 import Link from "next/link";
 import styles from "./Footer.module.css";
+
 export default function Footer() {
 	const footerLinks = [
 		{

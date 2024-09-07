@@ -6,7 +6,7 @@ export default async function ClientsList() {
 	const clients: { id: string; logo: string }[] = CLIENTS;
 	return (
 		<div className={styles["clients"]}>
-			<h2 className={styles["clients__header"]}>most importants clients</h2>
+			<h2 className={styles["clients__header"]}>Most importants clients</h2>
 			<div className={styles["clients__sub-header"]}>
 				Trusted by the industry&apos;s best experts
 			</div>
