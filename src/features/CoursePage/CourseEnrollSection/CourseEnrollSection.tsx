@@ -9,7 +9,7 @@ interface CourseEnrollSectionProps {
 	cost: number;
 	instructorName: string;
 	level: string;
-	rate: string;
+	rate: number;
 	duration: string;
 	courseId: number;
 }

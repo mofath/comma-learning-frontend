@@ -12,14 +12,9 @@ const StarRatingSummary: React.FC<StarRatingSummaryProps> = ({
 	rating,
 	reviewsCount,
 }) => {
-	// const roundedRating = rating?.toFixed(1);
-	const roundedRating = 2
-
 	return (
 		<div className={styles["star-rating-summary"]}>
-			<span className={styles["star-rating-summary__rating"]}>
-				{roundedRating}
-			</span>
+			<span className={styles["star-rating-summary__rating"]}>{rating}</span>
 			<StarRating rating={rating} />
 			<span className={styles["star-rating-summary__review-count"]}>
 				({reviewsCount})

@@ -40,15 +40,15 @@ export const CourseCard: React.FC<CourseCardProps> = ({
 					/>
 				}
 			>
-				<div className={"course-card"}>
-					<div className={"course-card__image-wrapper"}>
+				<div className="course-card">
+					<div className="course-card__image-wrapper">
 						<img
 							src={course.posterUrl}
 							alt={course.title}
-							className={"course-card__image"}
+							className="course-card__image"
 						/>
 						{!withProgress ? (
-							<button className={"course-card__favorite-btn"}>
+							<button className="course-card__favorite-btn">
 								<HeartIcon
 									width={20}
 									height={20}
@@ -57,37 +57,37 @@ export const CourseCard: React.FC<CourseCardProps> = ({
 							</button>
 						) : null}
 					</div>
-					<div className={"course-card__info"}>
+					<div className="course-card__info">
 						{/* Course title */}
-						<div className={"course-card__title"}>
-							<h3>{course.title}</h3>
+						<div className="course-card__title subtitle-3 wrap-text">
+							<p>{course.title}</p>
 						</div>
 						{/* Course instructor */}
-						<div className={"course-card__instructor"}>
+						<div className="course-card__instructor">
 							<p>{course.instructor.name}</p>
 						</div>
 						{/* rating */}
-						<div className={"course-card__rating"}>
+						<div className="course-card__rating">
 							<StarRatingSummary
 								rating={course.rating}
-								reviewsCount={course.reviewCount}
+								reviewsCount={course.reviewsCount}
 							/>
 						</div>
-						<div className={"course-card__footer"}>
+						<div className="course-card__footer">
 							{/* Course pricing */}
 							{!withProgress ? (
 								<>
-									<span className={"course-card__pricing"}>
+									<span className="course-card__pricing">
 										<p className="course-card__pricing__price">
 											{course.price}EGP
 										</p>
-										<p className={"course-card__pricing__discount-price"}>
+										<p className="course-card__pricing__discount-price">
 											{course.discountPrice}EGP
 										</p>
 									</span>
 									{/* Add to cart */}
 									<button
-										className={"course-card__cart-btn"}
+										className="course-card__cart-btn"
 										onClick={() => {
 											console.log(course.id);
 											addToCart({ id: course.id });

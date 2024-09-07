@@ -1,15 +1,13 @@
 "use client";
-// disable eslint
-/* eslint-disable */
 import { CourseListItem } from "@/types/Course";
 import { CourseCard } from "../CourseCard/CourseCard";
-import styles from "./CourseList.module.css";
 import { useSearchParams } from "next/navigation";
 import {
 	useCoursesQuery,
 	useEnrolledCoursesQuery,
 	useViewedCoursesQuery,
 } from "@/services/course.service";
+import "./CourseList.css";
 
 type Props = {
 	allCourses?: boolean;
@@ -21,9 +19,7 @@ type Props = {
 };
 
 export default function CourseList({
-	allCourses,
 	limit = 4,
-	start = 0,
 	type,
 	enrolled = false,
 	viewed = false,
@@ -44,21 +40,24 @@ export default function CourseList({
 				});
 
 	if (isLoading) {
-		return <p>Loading...</p>;
+		return <p className="course-list__loading">Loading...</p>;
 	}
 
 	if (error) {
-		return <p>Error loading courses. Please try again later.</p>;
+		return (
+			<p className="course-list__error">
+				Error loading courses. Please try again later.
+			</p>
+		);
 	}
 
 	return (
-		<section className={styles["list-container"]}>
-			<article className={styles["list"]}>
+		<section className="course-list">
+			<article className="course-list__items">
 				{courses.map((course: CourseListItem) => (
 					<CourseCard key={course.id} course={course} />
 				))}
 			</article>
-
 		</section>
 	);
 }

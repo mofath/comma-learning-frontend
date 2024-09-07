@@ -85,7 +85,7 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 						isUserAlreadyEnrolled={isUserEnrolled?.enrolled || false}
 						cost={courseData?.price}
 						instructorName={courseData?.instructor.name}
-						rate={courseData?.totalRating}
+						rate={courseData.rating}
 						level={courseData?.instructor.level}
 						duration={courseData?.duration}
 					/>

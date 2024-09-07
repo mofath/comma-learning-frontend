@@ -1,4 +1,3 @@
-import styles from "./page.module.css";
 import CourseList from "@/components/Courses/CourseList/CourseList";
 // import InstructorList from "@/components/Instructor/InstructorList/InstructorList";
 import ClientsList from "@/features/landingPage/components/ClientsList/ClientsList";
@@ -8,29 +7,30 @@ import Banner from "@/features/landingPage/components/Banner/Banner";
 import UserReviewList from "@/components/User/UserReviewList/UserReviewList";
 import { Suspense } from "react";
 import Loader from "@/components/ui/Loader/Loader";
+import "./page.css";
+
 export default async function Home({
 	searchParams,
 }: {
 	searchParams?: { category?: string };
 }) {
-	console.log(searchParams);
 	return (
-		<main className={styles.main}>
+		<main className="main">
 			<Banner />
-			<h2 className={styles["section-header"]}>
+			<h2 className="section-header">
 				Choose category to learn more about the courses in this category
 			</h2>
-			<article className={`container ${styles["courses-collection"]}`}>
+			<article className="container courses-collection">
 				<article>
-					<h2 className={styles["courses-header"]}>recorded courses</h2>
+					<h2 className="courses-header heading-1">Recorded Courses</h2>
 					<CourseList type="recorded" />
 				</article>
 				<article>
-					<h2 className={styles["courses-header"]}>interactive courses</h2>
+					<h2 className="courses-header heading-1">Interactive Courses</h2>
 					<CourseList type="interactive" />
 				</article>
 				<article>
-					<h2 className={styles["courses-header"]}>offline courses</h2>
+					<h2 className="courses-header heading-1">Offline Courses</h2>
 					<CourseList type="offline" />
 				</article>
 			</article>
@@ -50,3 +50,4 @@ export default async function Home({
 		</main>
 	);
 }
+

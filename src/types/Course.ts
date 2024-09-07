@@ -59,27 +59,10 @@ export interface CourseListItem {
 	};
 	price: number;
 	rating: number;
-	reviewCount: number;
+	reviewsCount: number;
 	slug: string;
 	title: string;
-	totalRating: number;
 	updatedAt: string;
 	status: boolean;
 	enrolled: boolean;
-
-	// id: number;
-	// categories: string[];
-	// description: string;
-	// type: string;
-	// isFavorite: boolean;
-	// title: string;
-	// instructor: Instructor;
-	// price: number;
-	// discountPrice: number;
-	// rating: number;
-	// time: string;
-	// location: string;
-	// reviewsCount: number;
-	// posterUrl: string;
-	// progress?: string | number;
 }

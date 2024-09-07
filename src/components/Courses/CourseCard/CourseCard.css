@@ -1,8 +1,7 @@
 .course-card {
 	position: relative;
-	width: 300px;
+	width: 270px;
 	max-width: 300px;
-	height: 400px; /* Set a fixed height for consistency */
 	overflow: visible;
 	transition: box-shadow 0.3s ease;
 }
@@ -10,6 +9,7 @@
 .course-card__image-wrapper {
 	position: relative;
 	width: 100%;
+	height: 194px;
 	padding-top: 56.25%;
 	overflow: hidden;
 	border-radius: 15px;
@@ -45,13 +45,8 @@
 }
 
 .course-card__title {
-	font-size: 18px;
 	margin: 0;
 	margin-bottom: 8px;
-	font-weight: bold;
-	white-space: nowrap; 
-	text-overflow: ellipsis;
-	overflow: hidden;
 }
 
 .course-card__instructor {
@@ -59,6 +54,10 @@
 	font-size: 14px;
 	line-height: 20px;
 	opacity: 0.8;
+}
+
+.course-card__rating {
+	padding: var(--space-sm) 0;
 }
 
 .course-card__pricing {
@@ -125,3 +124,15 @@
 	opacity: 1;
 }
 
+@media (max-width: 768px) {
+	.course-card {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+
+	.course-card__hover-details {
+		width: 100%;
+		max-width: 300px;
+	}
+}
