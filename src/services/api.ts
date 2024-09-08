@@ -41,7 +41,8 @@ const apiSlice = createApi({
 		"Notes",
 		"cart",
 		"Questions",
-		"Replies"
+		"Replies", 
+		"Payment"
 	],
 	endpoints: (builder) => ({}),
 });

@@ -1,9 +1,11 @@
-import { useCartQuery } from "@/services/cart.service";
+import { useGetUserCartQuery } from "@/services/cart.service";
 import Image from "next/image";
 import React from "react";
 import styles from "./CartSummaryList.module.css";
+
 export default function CartSummaryList() {
-	const { data } = useCartQuery();
+	const { data } = useGetUserCartQuery();
+	
 	return (
 		<section className={styles["cart-list"]}>
 			{data?.items.map((item) => {

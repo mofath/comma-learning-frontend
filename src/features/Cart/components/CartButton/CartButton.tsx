@@ -4,11 +4,11 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import HoverCard from "@/components/ui/HoverCard/HoverCard";
 import CartSummaryList from "../CartSummaryList/CartSummaryList";
-import { useCartQuery } from "@/services/cart.service";
+import { useGetUserCartQuery } from "@/services/cart.service";
 
 const CartButton = () => {
 	const navigation = useRouter();
-	const { data, isLoading } = useCartQuery();
+	const { data, isLoading } = useGetUserCartQuery();
 
 	if (isLoading) return <div>Loading...</div>;
 

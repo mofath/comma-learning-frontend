@@ -9,7 +9,7 @@ interface CartResponse {
 
 export const cartApiSlice = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
-		cart: builder.query<CartResponse, void>({
+		getUserCart: builder.query<CartResponse, void>({
 			query: () => ({
 				url: `/cart`,
 				method: "GET",
@@ -34,6 +34,6 @@ export const cartApiSlice = apiSlice.injectEndpoints({
 		}),
 	}),
 });
-export const { useCartQuery, useAddToCartMutation, useRemoveFromCartMutation } =
+export const { useGetUserCartQuery, useAddToCartMutation, useRemoveFromCartMutation } =
 	cartApiSlice;
 

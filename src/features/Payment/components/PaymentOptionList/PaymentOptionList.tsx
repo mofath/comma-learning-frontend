@@ -1,54 +1,54 @@
 "use client";
 import * as RadioGroup from "@radix-ui/react-radio-group";
-import React, { useState } from "react";
-import styles from "./PaymentOptionList.module.css";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Button from "@/components/ui/Button/Button";
 import AddCardModal from "../AddCardModal/AddCardModal";
+import "./PaymentOptionList.css";
 
-type Props = {
-	onSelect?: (value: string) => void;
-};
+interface PaymentOptionListProps {
+	onSelect: (value: string) => void;
+}
 
-export default function PaymentOptionList({ onSelect }: Props) {
+const PaymentOptionList: React.FC<PaymentOptionListProps> = ({ onSelect }) => {
 	const [isCardModalOpen, setIsCardModalOpen] = useState(false);
 
-	const switchCardModal = () => {
+	const switchCardModal = useCallback(() => {
 		setIsCardModalOpen((prev) => !prev);
-	};
+	}, []);
 
 	return (
 		<>
 			<RadioGroup.Root
-				className={styles["radio-group-root"]}
+				className="radio-group-root"
 				defaultValue="default"
 				aria-label="Payment Options"
+				onValueChange={onSelect}
 			>
-				<div className={styles["list-item"]}>
+				<div className="list-item">
 					<div>
 						<RadioGroup.Item
-							className={styles["radio-group-item"]}
+							className="radio-group-item"
 							value="card"
 							id="r1"
+							aria-labelledby="label-r1"
+							aria-checked={true}
 						>
-							<RadioGroup.Indicator
-								className={styles["radio-group-indicator"]}
-							/>
+							<RadioGroup.Indicator className="radio-group-indicator" />
 						</RadioGroup.Item>
-						<label className={styles["label"]} htmlFor="r1">
-							Your credit and debit cards
+						<label className="label" htmlFor="r1" id="label-r1">
+							Pay with Cards
 						</label>
 					</div>
 					<Button
 						variant="transparent"
 						size="fit"
-						className={styles["item-action"]}
-						onClick={() => switchCardModal()}
+						className="item-action"
+						onClick={switchCardModal}
 					>
 						<Image
 							src="/images/payment/visa.png"
-							alt="cards"
+							alt="Add credit or debit card"
 							width={40}
 							height={20}
 						/>
@@ -56,16 +56,15 @@ export default function PaymentOptionList({ onSelect }: Props) {
 					</Button>
 				</div>
 				<hr className="divider" />
-				<div className={styles["list-item"]}>
+				<div className="list-item">
 					<div>
 						<RadioGroup.Item
-							className={styles["radio-group-item"]}
+							className="radio-group-item"
 							value="valu"
 							id="valu"
+							aria-labelledby="label-valu"
 						>
-							<RadioGroup.Indicator
-								className={styles["radio-group-indicator"]}
-							/>
+							<RadioGroup.Indicator className="radio-group-indicator" />
 						</RadioGroup.Item>
 						<Image
 							src="/images/payment/valu.png"
@@ -73,52 +72,37 @@ export default function PaymentOptionList({ onSelect }: Props) {
 							width={40}
 							height={20}
 						/>
-						<label className={styles["label"]} htmlFor="valu">
+						<label className="label" htmlFor="valu" id="label-valu">
 							Buy now pay later
 						</label>
 					</div>
-					<p className={styles["item-description"]}>
-						valU Installment payments up to 60 months at 4.08% monthly interest
-						rate. Please select this payment method only if you are a valU
-						registered customer. <Link href="/valu">Learn more</Link>
-					</p>
+					<p className="item-description">Installments using valU</p>
 				</div>
 				<hr className="divider" />
-				<div className={styles["list-item"]}>
+				<div className="list-item">
 					<div>
 						<RadioGroup.Item
-							className={styles["radio-group-item"]}
+							className="radio-group-item"
 							value="e-wallet"
 							id="ewallet"
+							aria-labelledby="label-ewallet"
 						>
-							<RadioGroup.Indicator
-								className={styles["radio-group-indicator"]}
-							/>
+							<RadioGroup.Indicator className="radio-group-indicator" />
 						</RadioGroup.Item>
-						<label className={styles["label"]} htmlFor="ewallet">
+						<label className="label" htmlFor="ewallet" id="label-ewallet">
 							E-wallets
 						</label>
 					</div>
-					<p className={styles["item-description"]}>
+					<p className="item-description">
 						Effortless Payment: Seamlessly Transact Course Fees via E-Wallets
 					</p>
-				</div>
-				<hr className="divider" />
-				<div className={styles["list-item"]}>
-					<RadioGroup.Item
-						className={styles["radio-group-item"]}
-						value="cash-machine"
-						id="cash-machine"
-					>
-						<RadioGroup.Indicator className={styles["radio-group-indicator"]} />
-					</RadioGroup.Item>
-					<label className={styles["label"]} htmlFor="cash-machine">
-						Cash-machines
-					</label>
 				</div>
 			</RadioGroup.Root>
 
 			<AddCardModal open={isCardModalOpen} onOpenChange={setIsCardModalOpen} />
 		</>
 	);
-}
+};
+
+export default PaymentOptionList;
+
