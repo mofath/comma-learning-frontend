@@ -7,10 +7,6 @@ export default async function StatisticsList() {
 		STATISTICS;
 	return (
 		<div className="statistics-section">
-			<h2 className="statistics__header">Most importants clients</h2>
-			<div className="statistics__sub-header">
-				We measure our Success by our driven values
-			</div>
 			<div className="statistics-list">
 				{statistics.map((statistic, index) => (
 					<div key={index} className="statistics-item">
