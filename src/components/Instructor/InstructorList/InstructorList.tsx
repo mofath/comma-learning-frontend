@@ -3,12 +3,19 @@ import { useInstructorsQuery } from "@/services/instructor.service";
 import InstructorCard from "../InstructorCard/InstructorCard";
 import styles from "./InstructorList.module.css";
 import { InstructorListItem } from "../InstructorCard/Instructor";
-type Props = {
+import React from "react";
+
+interface InstructorsListProps {
 	type?: string;
 	category?: string;
 	limit?: number;
-};
-export default function InstructorList({ category, type, limit = 4 }: Props) {
+}
+
+const InstructorsList: React.FC<InstructorsListProps> = ({
+	category,
+	type,
+	limit = 4,
+}) => {
 	const {
 		data: instructors,
 		isLoading,
@@ -18,12 +25,13 @@ export default function InstructorList({ category, type, limit = 4 }: Props) {
 		type,
 		limit,
 	});
-	console.log(instructors);
+
 	if (isLoading) return <p>Loading...</p>;
+
 	if (error) return <p>Error: {JSON.stringify(error)}</p>;
+
 	return (
 		<section className={styles["list-container"]}>
-			<h2 className={styles["title"]}>Comma Experts</h2>
 			<div className={styles["list"]}>
 				{instructors &&
 					instructors.map((instructor: InstructorListItem) => (
@@ -32,4 +40,6 @@ export default function InstructorList({ category, type, limit = 4 }: Props) {
 			</div>
 		</section>
 	);
-}
+};
+
+export default InstructorsList;

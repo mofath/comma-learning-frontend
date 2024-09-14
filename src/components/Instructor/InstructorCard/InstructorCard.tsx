@@ -1,43 +1,56 @@
 import Image from "next/image";
-import styles from "./InstructorCard.module.css";
-import { InstructorListingResponse } from "@/services/instructor.service";
-export default function InstructorCard({
+import "./InstructorCard.css";
+
+interface ExpertCardProps {
+	name: string;
+	coursesCount: number;
+	reviewsCount: number;
+	jobTitle: string;
+	organization: string;
+	avatarUrl: string;
+}
+
+const ExpertCard: React.FC<ExpertCardProps> = ({
 	name,
 	coursesCount,
 	reviewsCount,
 	jobTitle,
 	organization,
 	avatarUrl,
-}: Readonly<InstructorListingResponse>) {
+}) => {
 	return (
-		<section className={styles["instructor-card"]}>
-			<div className={styles.aside}>
-				{true && (
-					<div className={styles["top-rated-badge"]}>
-						<p>Top Rated</p>
-					</div>
-				)}
-				<div className={styles["image-container"]}>
+		<section className="expert-card">
+			<div className="expert-card__image-section">
+				<div className="expert-card__top-rated-badge">
+					<p>Top Rated</p>
+				</div>
+				<div className="expert-card__image-container">
 					<Image
-						className={styles.image}
+						className="expert-card__image"
 						src={avatarUrl}
 						alt="instructor image"
-						fill
+						width={340}
+						height={358}
 					/>
 				</div>
 			</div>
-			<header className={styles.header}>
-				<h2 className={styles.title}>{name}</h2>
+
+			<header className="expert-card__header">
+				<h2 className="expert-card__title">{name}</h2>
 			</header>
-			<div className={styles.info}>
-				<p className={styles["position"]}>
+
+			<div className="expert-card__info">
+				<p className="expert-card__position">
 					{jobTitle} at <span>{organization}</span>
 				</p>
 			</div>
-			<div className={styles["session-review"]}>
-				<p className={styles["sessions"]}>{coursesCount} sessions</p>
-				<p className={styles["reviews"]}>({reviewsCount} reviews)</p>
+
+			<div className="expert-card__session-review">
+				<p className="expert-card__sessions">{coursesCount} sessions</p>
+				<p className="expert-card__reviews">({reviewsCount} reviews)</p>
 			</div>
 		</section>
 	);
-}
+};
+
+export default ExpertCard;

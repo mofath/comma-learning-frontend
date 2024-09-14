@@ -1,24 +1,16 @@
-.instructor-card {
+.expert-card {
     display: flex;
     flex-direction: column;
     position: relative;
     border-radius: var(--space-xs);
     gap: 20px;
-}
-
-
-.aside {
+  }
+  
+  .expert-card__image-section {
     position: relative;
-}
-
-.favorite-button {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-}
-
-.top-rated-badge {
+  }
+  
+  .expert-card__top-rated-badge {
     background: var(--color-neutral-200);
     color: var(--color-primary-100);
     font-size: var(--space-sm);
@@ -29,62 +21,59 @@
     left: var(--space-sm);
     z-index: 10;
     padding: var(--space-xxs);
-}
-
-.image-container {
+  }
+  
+  .expert-card__image-container {
     min-height: 194px;
     overflow: hidden;
-}
-
-/* .image {} */
-
-
-.title {
+  }
+  
+  .expert-card__image {
+    object-fit: cover;
+    border-radius: var(--space-xs);
+  }
+  
+  .expert-card__header {
+    margin: 0;
+  }
+  
+  .expert-card__title {
     font-weight: 700;
     font-size: 16px;
-    color: varvar(--color-primary-100);
-}
-
-.subtitle {
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 20px;
-    color: rgb(11, 36, 63);
-    opacity: 0.8;
-}
-
-.info {
+    color: var(--color-primary-100);
+  }
+  
+  .expert-card__info {
     display: flex;
     gap: 5px;
     align-items: center;
-}
-
-.position {
+  }
+  
+  .expert-card__position {
     font-weight: 500;
     font-size: 14px;
     color: var(--color-primary-100);
     opacity: 0.8;
-}
-
-.position span {
+  }
+  
+  .expert-card__position span {
     font-weight: 800;
-}
-
-.session-review {
+  }
+  
+  .expert-card__session-review {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.sessions {
+  }
+  
+  .expert-card__sessions {
     font-weight: 500;
-
     color: var(--color-primary-100);
-}
-
-.reviews {
+  }
+  
+  .expert-card__reviews {
     font-size: var(--space-sm);
     color: var(--color-primary-100);
-
     opacity: 0.5;
-}
+  }
+  
