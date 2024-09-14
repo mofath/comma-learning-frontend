@@ -1,16 +1,12 @@
 import Image from "next/image";
-import styles from "./ClientsList.module.css";
 import { CLIENTS } from "@/constants/clients";
+import "./ClientsList.css";
 
 export default async function ClientsList() {
 	const clients: { id: string; logo: string }[] = CLIENTS;
 	return (
-		<div className={styles["clients"]}>
-			<h2 className={styles["clients__header"]}>Most importants clients</h2>
-			<div className={styles["clients__sub-header"]}>
-				Trusted by the industry&apos;s best experts
-			</div>
-			<div className={styles["clients__list"]}>
+		<div className="clients-list">
+			<div className="clients-list__content">
 				{clients.map((client, index) => (
 					<Image
 						key={index}
