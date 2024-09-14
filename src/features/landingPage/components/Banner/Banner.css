@@ -1,0 +1,102 @@
+.banner {
+	min-height: 560px;
+	border-radius: 15px;
+	padding: var(--space-5xl) var(--space-2xl);
+	color: var(--color-primary-100);
+	background: var(--color-gray-400);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	gap: var(--space-2xl);
+	width: 100%;
+}
+
+.banner__content {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.banner__text-section {
+	flex-grow: 1;
+	display: flex;
+	gap: 25px;
+	flex-direction: column;
+	flex-wrap: wrap-reverse;
+}
+
+.banner__visual-section {
+	flex-basis: 400px;
+	position: relative;
+}
+
+.banner__tabs-list {
+	display: flex;
+	gap: 20px;
+	list-style-type: none;
+	font-weight: 800;
+	font-size: 18px;
+	color: var(--color-primary-200);
+}
+
+.banner__text {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+}
+
+.banner__text h2 {
+	font-weight: 700;
+	font-size: var(--text-7xl);
+	color: var(--color-primary-100);
+	word-wrap: break-word; /* Ensure the text breaks onto a new line */
+	white-space: normal; /* Allow text to wrap */
+	max-width: 900px;
+}
+
+.banner__text p {
+	font-weight: 300;
+	font-size: 24px;
+	color: var(--color-primary-100);
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.banner__footer p {
+	font-size: var(--text-xl);
+	font-weight: var(--fw-normal);
+}
+
+@media screen and (max-width: 1024px) {
+	.banner__review-cards {
+		display: none;
+	}
+}
+
+@media (max-width: 1024px) {
+	.banner {
+		padding: 20px;
+		gap: 20px;
+	}
+
+	.banner__content {
+		padding: 0px;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.banner__text-section {
+		width: 100%;
+	}
+
+	.banner__visual-section {
+		width: 100%; /* Make the right section responsive on smaller screens */
+	}
+
+	.banner__header,
+	.banner__sub-header {
+		text-align: center;
+	}
+}
+

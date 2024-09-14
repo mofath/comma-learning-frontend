@@ -1,25 +1,28 @@
 import Image from "next/image";
-import styles from "./Banner.module.css";
 import BannerReviewCard from "./Component/BannerReviewCard/BannerReviewCard";
-export default function Banner() {
+import "./Banner.css";
+
+const Banner = () => {
 	return (
-		<section className={`container ${styles["banner"]}`}>
-			<div className={styles["content"]}>
-				<div className={styles["left"]}>
-					<ul className={styles["type-list"]}>
-						<li className={styles["type-item"]}>Instructor</li>
-						<li className={styles["type-item"]}>Trainee</li>
+		<section className="banner">
+			<div className="banner__content">
+				{/* Text section */}
+				<div className="banner__text-section">
+					<ul className="banner__tabs-list">
+						<li className="banner__tab">Instructor</li>
+						<li className="banner__tab">Trainee</li>
 					</ul>
-					<h1 className={styles["header"]}>
-						Build an epic career with expert mentors today
-					</h1>
-					<h2 className={styles["sub-header"]}>
-						Book and meet over 24,318+ mentors for 1:1 mentorship in our global
-						community.
-					</h2>
+					<div className="banner__text">
+						<h2>Build an epic career with expert mentors today</h2>
+						<p>
+							Book and meet over 24,318+ mentors for 1:1 mentorship in our
+							global community.
+						</p>
+					</div>
 				</div>
-				<div className={styles["right"]}>
-					<div className={styles["review-cards"]}>
+				{/* Visual section */}
+				<div className="banner__visual-section">
+					<div className="banner__review-cards">
 						<BannerReviewCard
 							style={{
 								position: "absolute",
@@ -49,14 +52,16 @@ export default function Banner() {
 					<Image
 						src="/images/card-placeholder.png"
 						alt="banner"
-						width={384}
-						height={300}
+						width={400}
+						height={350}
 					/>
 				</div>
 			</div>
-			<footer className={styles["footer"]}>
-				15+ Years engineering learning experience.
+			<footer className="banner__footer">
+				<p> 15+ Years engineering learning experience.</p>
 			</footer>
 		</section>
 	);
-}
+};
+
+export default Banner;
