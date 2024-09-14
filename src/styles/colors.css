@@ -48,7 +48,7 @@
 	--color-red-200: #ff5646;
 	--color-red-300: #d80027;
 
-	--color-blue-link: #0064D1;
+	--color-blue-link: #0064d1;
 
 	/* Other Colors */
 	--color-purple-100: #7733ff;
@@ -73,7 +73,7 @@
 	--color-text-200: var(--color-gray-200);
 	--color-text-300: var(--color-gray-1000);
 	--color-text-400: #677686;
-	---color-secondary-text: #65676B;
+	---color-secondary-text: #65676b;
 
 	--color-link: var(--color-blue-300);
 
@@ -84,6 +84,11 @@
 	--color-gold: #ffc107;
 
 	--color-danger-100: #ff4d4f;
-}
 
+	--home-gradient: linear-gradient(
+		180deg,
+		rgba(255, 224, 200, 0.2) 0%,
+		rgba(255, 253, 251, 0) 100%
+	);
+}
 
