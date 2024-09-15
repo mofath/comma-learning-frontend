@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CourseContentHeader from "../ContentHeader/ContentHeader";
+import ContentHeader from "../ContentHeader/ContentHeader";
 import InputEditor from "@/components/InputEditor/InputEditor";
 import { User } from "@/store/slices/auth.slice";
 import QuestionDetail from "../QuestionsList/QuestionDetail/QuestionDetail";
@@ -11,7 +11,7 @@ import {
 	useDeleteQuestionMutation,
 	useUpdateQuestionMutation,
 } from "@/services/questions.service";
-import styles from "./CourseQuestions.module.css";
+import "./CourseQuestions.css";
 
 interface CourseQuestionsProps {
 	courseId: string;
@@ -56,10 +56,10 @@ const CourseQuestions: React.FC<CourseQuestionsProps> = ({
 	};
 
 	return (
-		<div className={styles["course-content"]}>
+		<div className="course-questions">
 			{!selectedQuestionId ? (
-				<>
-					<CourseContentHeader title="All questions in this course" />
+				<div className="course-questions__questions-list">
+					<ContentHeader title="All questions in this course" />
 					<div>
 						<InputEditor
 							onSubmit={handleSubmitQuestion}
@@ -67,20 +67,20 @@ const CourseQuestions: React.FC<CourseQuestionsProps> = ({
 							placeholder="Write your question here..."
 						/>
 					</div>
-					<div className={styles["course-questions__content"]}>
+					<div className="course-questions__content">
 						<QuestionList
 							onQuestionClick={handleQuestionClick}
 							questions={questionsData?.data || []}
 						/>
-						{/* <p className={styles["course-subtitle"]}>Other trainees Questions</p>
+						{/* <p className="course-subtitle">Other trainees Questions</p>
 							<Button variant="transparent" size="full" className="load-more-btn">
 								See More Questions
 							</Button> */}
 					</div>
-				</>
+				</div>
 			) : (
 				<>
-					<div className={styles["back-to-questions-btn-container"]}>
+					<div className="back-to-questions-btn-container">
 						<button onClick={() => setSelectedQuestionId(null)}>
 							Back to All Questions
 						</button>

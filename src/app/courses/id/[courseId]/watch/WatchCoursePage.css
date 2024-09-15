@@ -1,17 +1,17 @@
-.course-review-page {
+.course-watch-page {
 	display: flex;
 	flex-direction: row;
 	gap: var(--space-md);
 }
 
-.course-review-page__left-side {
+.course-watch-page__left-side {
 	width: 60%;
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-md);
 }
 
-.course-review-page__right-side {
+.course-watch-page__right-side {
 	width: 40%;
 }
 
@@ -21,12 +21,12 @@
 	font-weight: var(--fw-medium);
 }
 
-.reviews-tab {
-	margin-top: var(--space-xl);
+.course-watch-page__tab-content {
+	padding-top: var(--space-xl);
 }
 
 @media (min-width: 768px) {
-	.course-review-page {
+	.course-watch-page {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 }

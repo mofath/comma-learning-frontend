@@ -9,10 +9,10 @@ import CourseOverviewSection from "@/features/CoursePage/CourseOverviewSection/C
 import CourseNotes from "@/features/CoursePage/CourseNotes/CourseNotes";
 import CourseQuestions from "@/features/CoursePage/CourseQuestions/CourseQuestions";
 import Tabs from "@/components/ui/Tabs/Tabs";
-import { courseData } from "@/__mocks__/data/course";
 import CourseReviewsSection from "@/features/CoursePage/CourseReviewsSection/CourseReviewsSection";
 import { useAuthUser } from "@/hooks/useAuthUser";
-import styles from "./WatchCoursePage.module.css";
+import { useCourseQuery } from "@/services/course.service";
+import "./WatchCoursePage.css";
 
 const CoursePreview: React.FC = () => {
 	const [activeChapterIndex, setActiveChapterIndex] = useState(0);
@@ -21,11 +21,9 @@ const CoursePreview: React.FC = () => {
 	const { courseId } = useParams<{ courseId: string }>();
 	const { authUser } = useAuthUser();
 
-	const currentChapterId = courseData.chapters[activeChapterIndex]?.id;
+	const currentChapterId = 1;
 
-	const [courseInfo] = useState({
-		...courseData,
-	});
+	const { data: courseData, isLoading } = useCourseQuery({ id: courseId });
 
 	useEffect(() => {
 		checkUserEnrolledToCourse();
@@ -53,53 +51,62 @@ const CoursePreview: React.FC = () => {
 	};
 
 	return (
-		<div className={`container ${styles["course-review-page"]}`}>
+		<div className="course-watch-page container">
 			{/* Left side section */}
-			<div className={styles["course-review-page__left-side"]}>
+			<div className="course-watch-page__left-side">
 				<VideoPlayer
 					ref={videoPlayerRef}
-					videoUrl={courseInfo?.chapters[activeChapterIndex]?.videoUrl}
-					poster={courseInfo?.posterUrl}
+					videoUrl={courseData?.chapters[activeChapterIndex]?.videoUrl}
+					poster={courseData?.posterUrl}
 					onTimeUpdate={(t) => setCurrentTimestamp(t)}
 				/>
 				<Tabs>
 					{/* Course Overview Tab */}
 					<div title="Course Overview">
-						<CourseOverviewSection
-							insturctor={courseInfo.instructor}
-							skillLevel={courseInfo.skillLevel}
-							students={courseInfo.students}
-							languages={courseInfo.skillLevel}
-							captions={courseInfo.skillLevel}
-							lectures={courseInfo.lectures}
-							video={courseInfo.skillLevel}
-							features={courseInfo.features}
-							description={courseInfo.description}
-						/>
+						<div className="course-watch-page__tab-content">
+							<CourseOverviewSection
+								title={courseData?.title}
+								insturctor={courseData?.instructor || {}}
+								skillLevel={"Senior"} // TODO
+								students={158} // TODO
+								languages={courseData?.languages}
+								captions={courseData?.skillLevel}
+								lecturesCount={courseData?.lecturesCount}
+								duration={courseData?.duration}
+								features={courseData?.features} // TODO
+								description={courseData?.description}
+							/>
+						</div>
 					</div>
 					{/* Notes Tab */}
 					<div title="Notes">
-						<CourseNotes
-							currentTimestamp={currentTimestamp}
-							chapterId={currentChapterId}
-							userId={authUser?.id}
-							pauseVideo={pauseVideo}
-						/>
+						<div className="course-watch-page__tab-content">
+							<CourseNotes
+								currentTimestamp={currentTimestamp}
+								chapterId={currentChapterId}
+								userId={authUser?.id}
+								pauseVideo={pauseVideo}
+							/>
+						</div>
 					</div>
 					{/* Review Tab */}
-					<div title="Review" className={styles["reviews-tab"]}>
-						<CourseReviewsSection courseId={courseId} user={authUser} />
+					<div title="Review" className="course-watch-page__tab-content">
+						<div className="course-watch-page__tab-content">
+							<CourseReviewsSection courseId={courseId} user={authUser} />
+						</div>
 					</div>
 					{/* Questions Tab */}
 					<div title="Ask Instructor">
-						<CourseQuestions courseId={courseId} user={authUser} />
+						<div className="course-watch-page__tab-content">
+							<CourseQuestions courseId={courseId} user={authUser} />
+						</div>
 					</div>
 				</Tabs>
 			</div>
 			{/* Right side section */}
-			<div className={styles["course-review-page__right-side"]}>
+			<div className="course-watch-page__right-side">
 				<CourseContentSection
-					chapters={courseInfo.chapters}
+					chapters={courseData?.chapters || []}
 					watchMode={true}
 					isUserAlreadyEnrolled={isUserAlreadyEnrolled}
 					setActiveChapterIndex={setActiveChapterIndex}

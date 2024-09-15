@@ -1,3 +1,10 @@
+
+.course-questions__questions-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+}
+
 .course-content-header {
 	margin-top: var(--space-lg);
 	margin-bottom: var(--space-md);

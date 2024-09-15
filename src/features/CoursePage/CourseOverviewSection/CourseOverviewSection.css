@@ -1,3 +1,9 @@
+.course-overview-section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+}
+
 .course-overview-section__info-row {
 	display: flex;
 	flex-direction: row;
@@ -24,14 +30,11 @@
 	gap: var(--space-lg);
 }
 
-.course-overview-section__info-row-cell.describtion ul {
+.course-overview-section__info-row-cell.instructor ul,
+.course-overview-section__info-row-cell.describtion ul,
+.course-overview-section__info-row-cell.numbers ul {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-sm);
 }
 
-.course-overview-section__info-row-cell.instructor ul {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-sm);
-}
