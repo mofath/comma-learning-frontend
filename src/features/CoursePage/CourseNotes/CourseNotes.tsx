@@ -10,7 +10,7 @@ import {
 	useGetNotesQuery,
 } from "@/services/notes.service";
 import NotesList from "@/components/Notes/NotesList/NotesList";
-import styles from "./CourseNotes.module.css";
+import "./CourseNotes.css";
 
 interface CourseNotesProps {
 	chapterId: number;
@@ -92,18 +92,18 @@ const CourseNotes: React.FC<CourseNotesProps> = ({
 	};
 
 	return (
-		<div className={styles["course--tab-content"]}>
+		<div className="course--tab-content">
 			{!isEditorVisible ? (
-				<div className={styles["create-bookmark__container"]}>
+				<div className="create-bookmark__container">
 					<div className="create-bookmark__container">
 						<Button
 							type="button"
 							variant="transparent"
 							size="full"
-							className={styles["create-bookmark__button"]}
+							className="create-bookmark__button"
 							onClick={toggleCreateNote}
 						>
-							<span className={styles["create-bookmark__button__content"]}>
+							<span className="create-bookmark__button__content">
 								<span>
 									Create a new note at{" "}
 									<span data-purpose="create-bookmark-current-time">
@@ -116,7 +116,7 @@ const CourseNotes: React.FC<CourseNotesProps> = ({
 					</div>
 				</div>
 			) : (
-				<div className={styles["create-bookmark__input"]}>
+				<div className="create-bookmark__input">
 					<DurationBadge duration={currentTimestamp} />
 					<InputEditor onCancel={toggleCreateNote} onSubmit={handleSubmit} />
 				</div>
