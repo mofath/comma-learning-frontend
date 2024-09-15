@@ -14,8 +14,16 @@ import { useAuthUser } from "@/hooks/useAuthUser";
 import { useCourseQuery } from "@/services/course.service";
 import "./WatchCoursePage.css";
 
+interface ActiveVideo {
+	chapterIndex: number;
+	videoIndex: number;
+}
+
 const CoursePreview: React.FC = () => {
-	const [activeChapterIndex, setActiveChapterIndex] = useState(0);
+	const [activeVideo, setActiveVideo] = useState<ActiveVideo>({
+		chapterIndex: 0,
+		videoIndex: 0,
+	});
 	const [currentTimestamp, setCurrentTimestamp] = useState("0:00");
 	const videoPlayerRef = useRef<VideoPlayerHandle>(null);
 	const { courseId } = useParams<{ courseId: string }>();
@@ -46,6 +54,10 @@ const CoursePreview: React.FC = () => {
 		}, 1000);
 	};
 
+	const handleVideoClick = (chapterIndex: number, videoIndex: number) => {
+		setActiveVideo({ chapterIndex, videoIndex });
+	};
+
 	const pauseVideo = () => {
 		videoPlayerRef.current?.pause();
 	};
@@ -56,7 +68,11 @@ const CoursePreview: React.FC = () => {
 			<div className="course-watch-page__left-side">
 				<VideoPlayer
 					ref={videoPlayerRef}
-					videoUrl={courseData?.chapters[activeChapterIndex]?.videoUrl}
+					videoUrl={
+						courseData?.chapters[activeVideo.chapterIndex]?.videos[
+							activeVideo.videoIndex
+						]?.url
+					}
 					poster={courseData?.posterUrl}
 					onTimeUpdate={(t) => setCurrentTimestamp(t)}
 				/>
@@ -109,7 +125,7 @@ const CoursePreview: React.FC = () => {
 					chapters={courseData?.chapters || []}
 					watchMode={true}
 					isUserAlreadyEnrolled={isUserAlreadyEnrolled}
-					setActiveChapterIndex={setActiveChapterIndex}
+					handleVideoClick={handleVideoClick}
 					completedChapter={[]}
 				/>
 			</div>

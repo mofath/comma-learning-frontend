@@ -13,7 +13,7 @@ interface CourseContentSectionProps {
 	chapters: Chapter[];
 	isUserAlreadyEnrolled: boolean;
 	watchMode?: boolean;
-	setActiveChapterIndex: (index: number) => void;
+	handleVideoClick: (chapterIndex: number, videoIndex: number) => void;
 	completedChapter: CompletedChapter[];
 }
 
@@ -21,7 +21,7 @@ function CourseContentSection({
 	chapters,
 	// isUserAlreadyEnrolled,
 	watchMode = false,
-	setActiveChapterIndex,
+	handleVideoClick,
 }: CourseContentSectionProps) {
 	const [, setActiveIndex] = useState(0);
 
@@ -35,22 +35,28 @@ function CourseContentSection({
 				<p>Course cotent</p>
 			</div>
 			<div className="course-content-section__chapters-list">
-				{chapters.map((chapter, index) => {
+				{chapters.map((chapter, chapterIndex) => {
 					return (
-						<div className="course-content-section__chapter-item">
-							<Collapsible title={`Chapter ${index + 1}: ${chapter.title}`}>
+						<div
+							key={chapterIndex}
+							className="course-content-section__chapter-item"
+						>
+							<Collapsible
+								title={`Chapter ${chapterIndex + 1}: ${chapter.title}`}
+							>
 								<div className="course-content-section__content">
-									{chapter?.videos.map((video, index) => (
+									{chapter?.videos.map((video, videoIndex) => (
 										<div
-											key={index}
+											key={videoIndex}
 											className="course-content-section__content-item"
 											onClick={() => {
-												watchMode && setActiveChapterIndex(index);
-												watchMode && setActiveIndex(index);
+												if (watchMode) {
+													handleVideoClick(chapterIndex, videoIndex);
+												}
 											}}
 										>
 											<span>
-												{index + 1}. {video.title}
+												{videoIndex + 1}. {video.title}
 											</span>
 											<span>
 												<span className="course-chapter-item__duration">
@@ -73,7 +79,7 @@ function CourseContentSection({
 															/>
 														)}
 													</i>
-													{formatDuration(video?.duration)} 
+													{formatDuration(video?.duration)}
 												</span>
 											</span>
 										</div>
