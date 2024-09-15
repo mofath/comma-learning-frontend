@@ -9,9 +9,9 @@ interface UserAvatarCardProps {
 	rating?: number;
 	age?: string;
 	user: {
-		id: number | string;
+		id: number;
 		fullName: string;
-		avatarUrl: string;
+		avatarUrl?: string;
 		jobTitle?: string;
 		organization?: string;
 	};

@@ -2,23 +2,47 @@
 	background: var(--color-neutral-300);
 	padding: var(--space-md);
 	background: var(--color-secondary-100);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
 }
 
 .course-enroll-section__header {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--space-sm);
 }
 
-.course-enroll-section__header p {
-	width: 100%;
-	margin-right: auto;
+.course-enroll-section__course-name {
+	flex-grow: 1;
 	font-weight: var(--fw-medium);
 	font-size: var(--text-2xl);
+	white-space: normal;
+	overflow: visible;
+	margin-right: var(--space-md);
+}
+
+.course-enroll-section__action-group {
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-sm);
+}
+
+.course-enroll-section__action-btn.button--transparent {
+	padding: 0 !important;
+	display: flex;
+	align-items: center;
+	gap: var(--space-xs);
+}
+
+.course-enroll-section__action-btn span {
+	font-size: var(--text-lg);
+	font-weight: 450;
 }
 
 .course-enroll-section__content {
-	padding: var(--space-lg) 0;
 	display: flex;
 	flex-direction: column;
 	gap: var(--text-sm);
@@ -35,10 +59,5 @@
 
 .course-enroll-section__action-btn {
 	color: var(--color-primary-100);
-}
-
-.course-enroll-section__action-btn span {
-	font-size: var(--text-lg);
-	font-weight: 450;
 }
 

@@ -1,8 +1,8 @@
 .course-objective-section {
-	margin-top: var(--space-lg);
+	width: 100%;
 }
 
-.objective-list {
+.course-objective-section__objectives-list {
 	margin-top: var(--space-sm);
 	padding-left: 20px;
 	counter-reset: list-counter;

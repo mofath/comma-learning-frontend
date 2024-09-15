@@ -11,10 +11,10 @@ import { User } from "@/store/slices/auth.slice";
 import InputEditor from "@/components/InputEditor/InputEditor";
 import StarRatingInput from "@/components/ui/StarRatingInput/StarRatingInput";
 import CourseFeedback from "../CourseFeedback/CourseFeedback";
-import CourseContentHeader from "../CourseContentHeader/CourseContentHeader";
+import CourseContentHeader from "../ContentHeader/ContentHeader";
 import UserAvatarCard from "@/components/User/UserAvatarCard/UserAvatarCard";
 import { CourseReview } from "@/types/Review";
-import styles from "./CourseReviewsSection.module.css";
+import "./CourseReviewsSection.css";
 
 interface CourseReviewsSectionProps {
 	courseId: string;
@@ -71,9 +71,9 @@ const CourseReviewsSection: React.FC<CourseReviewsSectionProps> = ({
 	};
 
 	return (
-		<div className={styles["course-reviews-section"]}>
+		<div className="course-reviews-section">
 			<CourseContentHeader title="Students feedback" />
-			<div className={styles["course-reviews-section__content"]}>
+			<div className="course-reviews-section__content">
 				<CourseFeedback
 					totalReviews={reviewsSummaryData?.totalReviews}
 					oneStarCount={reviewsSummaryData?.oneStarCount}
@@ -84,7 +84,7 @@ const CourseReviewsSection: React.FC<CourseReviewsSectionProps> = ({
 					overallRating={reviewsSummaryData?.overallRating}
 				/>
 				{watchMode ? (
-					<div className={styles["course-reviews-section__input"]}>
+					<div className="course-reviews-section__input">
 						<UserAvatarCard
 							user={{
 								id: user?.id as number,
@@ -93,7 +93,7 @@ const CourseReviewsSection: React.FC<CourseReviewsSectionProps> = ({
 								avatarUrl: user?.avatarUrl as string,
 							}}
 						/>
-						<div className={styles["course-reviews-input__star-rating"]}>
+						<div className="course-reviews-input__star-rating">
 							<p>How do you rate this course?</p>
 							<StarRatingInput
 								onRatingChange={(rating) => setRating(rating)}
@@ -107,7 +107,7 @@ const CourseReviewsSection: React.FC<CourseReviewsSectionProps> = ({
 						/>
 					</div>
 				) : null}
-				<div className={styles["course-reviews-section__reviews-list"]}>
+				<div className="course-reviews-section__reviews-list">
 					<ReviewsList reviews={reviews} />
 				</div>
 				{reviewsData?.totalPages && page < reviewsData.totalPages && (

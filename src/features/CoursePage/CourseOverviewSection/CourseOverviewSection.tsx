@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./CourseOverviewSection.module.css";
-import CourseContentHeader from "../CourseContentHeader/CourseContentHeader";
+import CourseContentHeader from "../ContentHeader/ContentHeader";
 import UserAvatarCard from "@/components/User/UserAvatarCard/UserAvatarCard";
 import { Instructor } from "@/types/Course";
 

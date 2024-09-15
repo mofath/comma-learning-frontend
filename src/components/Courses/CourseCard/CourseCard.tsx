@@ -24,7 +24,7 @@ export const CourseCard: React.FC<CourseCardProps> = ({
 	const [addToCart] = useAddToCartMutation();
 
 	return (
-		<Link href={`/course/${course.id}`}>
+		<Link href={`/courses/id/${course.id}`}>
 			<HoverCard
 				align="end"
 				side="right"
@@ -117,7 +117,3 @@ export const CourseCard: React.FC<CourseCardProps> = ({
 		</Link>
 	);
 };
-
-{
-	/* <Link href={`/course/${course.id}`}></Link> */
-}

@@ -1,3 +1,9 @@
+.course-reviews-section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-md);
+}
+
 .course-reviews-section__content {
 	display: flex;
 	flex-direction: column;

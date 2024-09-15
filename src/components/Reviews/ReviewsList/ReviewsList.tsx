@@ -1,7 +1,7 @@
 import React from "react";
 import ReviewComponent from "../ReviewComponent/ReviewComponent";
 import { CourseReview } from "@/types/Review";
-import styles from "./ReviewsList.module.css";
+import "./ReviewsList.css";
 
 interface ReviewsListProps {
 	reviews: CourseReview[];
@@ -9,7 +9,7 @@ interface ReviewsListProps {
 
 const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
 	return (
-		<div className={styles["reviews-list"]}>
+		<div className="reviews-list">
 			{reviews.map((review, index) => {
 				return <ReviewComponent key={index} review={review} />;
 			})}

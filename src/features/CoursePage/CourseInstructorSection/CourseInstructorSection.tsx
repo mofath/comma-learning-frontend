@@ -1,7 +1,8 @@
 import React from "react";
-import styles from "./CourseInstructorSection.module.css";
 import UserAvatarCard from "@/components/User/UserAvatarCard/UserAvatarCard";
 import { Instructor } from "@/types/Course";
+import ContentHeader from "../ContentHeader/ContentHeader";
+import "./CourseInstructorSection.css";
 
 interface CourseInstructorSectionProps {
 	instructor: Instructor;
@@ -11,8 +12,8 @@ const CourseInstructorSection: React.FC<CourseInstructorSectionProps> = ({
 	instructor,
 }) => {
 	return (
-		<div className={styles["course-instructor-section"]}>
-			<h2>Course Instructor</h2>
+		<div className="course-instructor-section">
+			<ContentHeader title="Course Instructor" />
 			<UserAvatarCard
 				user={{
 					id: instructor?.id,

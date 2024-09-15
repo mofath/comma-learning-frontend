@@ -1,0 +1,48 @@
+.course-content-section {
+	background: var(--color-secondary-100);
+}
+
+.course-content-section__header {
+	font-size: var(--text-xl);
+	font-weight: var(--fw-bold);
+	width: 100%;
+	flex: 1;
+	padding: var(--space-unit) var(--space-md);
+}
+
+.course-content-section__header p {
+	font-size: var(--text-xl);
+	font-weight: var(--fw-bold);
+}
+
+.course-content-section__chapter-item {
+	border-top: solid 1px var(--color-border-100);
+}
+
+.course-content-section__content {
+	padding-top: var(--space-xs);
+	padding-bottom: var(--space-md);
+	background: var(--color-background);
+}
+
+.course-content-section__content-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: var(--space-xs) var(--space-lg);
+	cursor: pointer;
+}
+
+.course-content-section__content-item:hover {
+	background: var(--color-white);
+}
+
+.course-chapter-item__duration {
+	width: 95px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--space-xs);
+}
+

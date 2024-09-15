@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./CourseVideoDescription.module.css";
+import ContentHeader from "../ContentHeader/ContentHeader";
+import "./CourseVideoDescription.css";
 
 interface CourseVideoDescriptionProps {
 	description: string;
@@ -11,16 +12,9 @@ function CourseVideoDescription({
 	category,
 }: CourseVideoDescriptionProps) {
 	return (
-		<div className={styles["course-video-description"]}>
-			<div className={styles["course-video-description__header"]}>
-				<h2>Course Category</h2>
-				<p>{category}</p>
-			</div>
-
-			<div className={styles["course-video-description__description"]}>
-				<h2>Course Description</h2>
-				<p>{description}</p>
-			</div>
+		<div className="course-video-description">
+			<ContentHeader title="Course Category" subtitle={category} />
+			<ContentHeader title="Course Description" subtitle={description} />
 		</div>
 	);
 }

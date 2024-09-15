@@ -1,27 +1,30 @@
 import Button from "@/components/ui/Button/Button";
 import React, { useEffect, useState } from "react";
-import styles from "./CourseEnrollSection.module.css";
 import Image from "next/image";
 import { useAddToCartMutation } from "@/services/cart.service";
+import "./CourseEnrollSection.css";
+import { formatDuration } from "@/utils/formatDuration";
 
 interface CourseEnrollSectionProps {
+	courseId: number;
+	courseName: string;
 	isUserAlreadyEnrolled: boolean;
 	cost: number;
 	instructorName: string;
 	level: string;
 	rate: number;
-	duration: string;
-	courseId: number;
+	duration: number;
 }
 
 const CourseEnrollSection: React.FC<CourseEnrollSectionProps> = ({
+	courseId,
+	courseName,
 	isUserAlreadyEnrolled,
 	cost,
 	instructorName,
 	level,
 	rate,
 	duration,
-	courseId,
 }) => {
 	const [enrolledCourseId, setEnrolledCourseId] = useState<string | null>(null);
 
@@ -48,39 +51,41 @@ const CourseEnrollSection: React.FC<CourseEnrollSectionProps> = ({
 	// };
 
 	return (
-		<div className={styles["course-enroll-section"]}>
-			<div className={styles["course-enroll-section__header"]}>
-				<p>Course name</p>
-				<Button
-					variant="transparent"
-					className={styles["course-enroll-section__action-btn"]}
-				>
-					<>
+		<div className="course-enroll-section">
+			<div className="course-enroll-section__header">
+				<p className="course-enroll-section__course-name">{courseName}</p>
+				<div className="course-enroll-section__action-group">
+					<Button
+						variant="transparent"
+						className="course-enroll-section__action-btn"
+					>
+						<>
+							<Image
+								src="/svg/save.svg"
+								alt="save icon"
+								width={22}
+								height={22}
+								priority
+							/>
+							<span>Save</span>
+						</>
+					</Button>
+					<Button
+						variant="transparent"
+						className="course-enroll-section__action-btn"
+					>
 						<Image
-							src="/svg/save.svg"
-							alt="save icon"
+							src="/svg/share-dark.svg"
+							alt="share icon"
 							width={22}
 							height={22}
 							priority
 						/>
-						<span>Save</span>
-					</>
-				</Button>
-				<Button
-					variant="transparent"
-					className={styles["course-enroll-section__action-btn"]}
-				>
-					<Image
-						src="/svg/share-dark.svg"
-						alt="share icon"
-						width={22}
-						height={22}
-						priority
-					/>
-					<span>Share</span>
-				</Button>
+						<span>Share</span>
+					</Button>
+				</div>
 			</div>
-			<div className={styles["course-enroll-section__content"]}>
+			<div className="course-enroll-section__content">
 				<div>
 					<span>Instructor Name&nbsp;:&nbsp;</span>
 					<span>{instructorName}</span>
@@ -91,7 +96,7 @@ const CourseEnrollSection: React.FC<CourseEnrollSectionProps> = ({
 				</div>
 				<div>
 					<span>Duration&nbsp;:&nbsp;</span>
-					<span>{duration}</span>
+					<span>{formatDuration(duration)}</span>
 				</div>
 				<div>
 					<span>Rate&nbsp;:&nbsp;</span>
@@ -103,7 +108,7 @@ const CourseEnrollSection: React.FC<CourseEnrollSectionProps> = ({
 				</div>
 			</div>
 			<Button
-				className={styles["course-enroll-section__enroll-btn"]}
+				className="course-enroll-section__enroll-btn"
 				variant="secondary"
 				size="full"
 				onClick={() => {

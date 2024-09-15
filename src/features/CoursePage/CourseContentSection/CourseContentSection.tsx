@@ -1,8 +1,9 @@
 import Collapsible from "@/components/Collapsible/Collapsible";
 import Image from "next/image";
 import React, { useState } from "react";
-import styles from "./CourseContentSection.module.css";
 import { Chapter } from "@/types/Course";
+import "./CourseContentSection.css";
+import { formatDuration } from "@/utils/formatDuration";
 
 interface CompletedChapter {
 	chapterId: number;
@@ -29,52 +30,60 @@ function CourseContentSection({
 	// };
 
 	return (
-		<div className={styles["course-content-section"]}>
-			<Collapsible
-				title="Course content"
-				className={styles["course-content-section__collapsible"]}
-			>
-				<div className={styles["course-content-section__content"]}>
-					{chapters.map((item, index) => (
-						<div
-							key={index}
-							className={styles["course-chapter-item"]}
-							onClick={() => {
-								watchMode && setActiveChapterIndex(index);
-								watchMode && setActiveIndex(index);
-							}}
-						>
-							<span>
-								{index + 1}. {item.title}
-							</span>
-							<span>
-								<span className={styles["course-chapter-item__duration"]}>
-									<i>
-										{watchMode ? (
-											<Image
-												src="/svg/play.svg"
-												alt="Arrow icon"
-												width={30}
-												height={30}
-												priority
-											/>
-										) : (
-											<Image
-												src="/svg/play-locked.svg"
-												alt="Arrow icon"
-												width={30}
-												height={30}
-												priority
-											/>
-										)}
-									</i>
-									3 min
-								</span>
-							</span>
+		<div className="course-content-section">
+			<div className="course-content-section__header">
+				<p>Course cotent</p>
+			</div>
+			<div className="course-content-section__chapters-list">
+				{chapters.map((chapter, index) => {
+					return (
+						<div className="course-content-section__chapter-item">
+							<Collapsible title={`Chapter ${index + 1}: ${chapter.title}`}>
+								<div className="course-content-section__content">
+									{chapter?.videos.map((video, index) => (
+										<div
+											key={index}
+											className="course-content-section__content-item"
+											onClick={() => {
+												watchMode && setActiveChapterIndex(index);
+												watchMode && setActiveIndex(index);
+											}}
+										>
+											<span>
+												{index + 1}. {video.title}
+											</span>
+											<span>
+												<span className="course-chapter-item__duration">
+													<i>
+														{watchMode ? (
+															<Image
+																src="/svg/play.svg"
+																alt="Arrow icon"
+																width={30}
+																height={30}
+																priority
+															/>
+														) : (
+															<Image
+																src="/svg/play-locked.svg"
+																alt="Arrow icon"
+																width={30}
+																height={30}
+																priority
+															/>
+														)}
+													</i>
+													{formatDuration(video?.duration)} 
+												</span>
+											</span>
+										</div>
+									))}
+								</div>
+							</Collapsible>
 						</div>
-					))}
-				</div>
-			</Collapsible>
+					);
+				})}
+			</div>
 		</div>
 	);
 }

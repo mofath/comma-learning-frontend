@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CourseContentHeader from "../CourseContentHeader/CourseContentHeader";
+import CourseContentHeader from "../ContentHeader/ContentHeader";
 import InputEditor from "@/components/InputEditor/InputEditor";
 import { User } from "@/store/slices/auth.slice";
 import QuestionDetail from "../QuestionsList/QuestionDetail/QuestionDetail";
