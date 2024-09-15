@@ -1,5 +1,5 @@
 export interface User {
-	id: string;
+	id: number;
 	fullName: string;
 	avatarUrl?: string;
 	jobTitle?: string;
@@ -7,7 +7,7 @@ export interface User {
 }
 
 export interface CourseReview {
-	id: string;
+	id: number;
 	text: string;
 	rating: number;
 	courseId: number;

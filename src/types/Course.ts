@@ -1,5 +1,5 @@
 export interface Instructor {
-	id: string;
+	id: number;
 	name: string;
 	level: string;
 	jobTitle: string;
@@ -7,11 +7,20 @@ export interface Instructor {
 	avatarUrl?: string;
 }
 
+interface Video {
+	id: number;
+	title: string;
+	url: string;
+	description: string;
+	duration: number;
+
+}
+
 export interface Chapter {
 	id: number;
 	title: string;
 	description: string;
-	videoUrl: string;
+	videos: Video[];
 }
 
 export interface Course {
