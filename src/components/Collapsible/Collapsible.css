@@ -1,11 +1,11 @@
 .collapsible {
-	margin-bottom: 1rem;
+	width: 100%;
 }
 
 .collapsible__header {
 	width: 100%;
 	border: none;
-	background: var(--color-white);
+	background: transparent;
 	padding: var(--space-unit) var(--space-md);
 }
 

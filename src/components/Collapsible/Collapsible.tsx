@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Collapsible.module.css";
+import "./Collapsible.css";
 import Image from "next/image";
 
 interface CollapsibleProps {
@@ -34,46 +34,44 @@ const Collapsible: React.FC<CollapsibleProps> = ({
 	};
 
 	return (
-		<div className={`${className} ${styles["collapsible"]}`}>
+		<div className={`collapsible ${className}`}>
 			<button
-				className={styles["collapsible__header"]}
+				className="collapsible__header"
 				onClick={handleToggle}
 				onKeyDown={handleKeyDown}
 				aria-expanded={isExpanded}
 			>
-				<div className={styles["collapsible__header__content"]}>
+				<div className="collapsible__header__content">
 					<div>
-						<p className={styles["collapsible__header-content__title"]}>
-							{title}
-						</p>
+						<p className="collapsible__header-content__title">{title}</p>
 						{subtitle && (
-							<p className={styles["collapsible__header-content__subtitle"]}>
+							<p className="collapsible__header-content__subtitle">
 								{subtitle}
 							</p>
 						)}
 					</div>
-					<i className={styles["collapsible__header-content__icon"]}>
+					<i className="collapsible__header-content__icon">
 						{isExpanded ? (
 							<Image
 								src="/svg/arrow-chevron-right.svg"
 								alt="Arrow icon"
-								width={30}
-								height={30}
+								width={20}
+								height={20}
 								priority
 							/>
 						) : (
 							<Image
 								src="/svg/arrow-chevron-down.svg"
 								alt="Arrow icon"
-								width={30}
-								height={30}
+								width={20}
+								height={20}
 								priority
 							/>
 						)}
 					</i>
 				</div>
 			</button>
-			<div className={styles["collapsible__body"]} aria-hidden={!isExpanded}>
+			<div className="collapsible__body" aria-hidden={!isExpanded}>
 				{children}
 			</div>
 		</div>
