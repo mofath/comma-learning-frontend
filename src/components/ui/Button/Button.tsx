@@ -1,5 +1,5 @@
 "use client";
-import styles from "./Button.module.css";
+import "./Button.css";
 import { ReactNode, ButtonHTMLAttributes, MouseEventHandler } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -34,13 +34,22 @@ export default function Button({
 	type = "button",
 	...props
 }: Readonly<ButtonProps>) {
+	// Construct classes
+	const classes = [
+		"button",
+		variant ? `button--${variant}` : "",
+		radius ? `button--rounded-${radius}` : "",
+		size ? `button--${size}` : "",
+		fullWidth ? "button--fullWidth" : "",
+		className,
+	]
+		.filter(Boolean)
+		.join(" ");
+
 	return (
 		<button
 			type={type}
-			className={`${styles.button} ${styles[`button--${variant}`]} ${className}
-            ${styles[`button--rounded-${radius}`] || ""}
-            ${styles[`button--${size}`] || ""}
-            `}
+			className={classes}
 			onClick={onClick}
 			disabled={disabled}
 			{...props}
