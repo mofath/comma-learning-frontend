@@ -1,5 +1,5 @@
 "use client";
-import React from "module";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";

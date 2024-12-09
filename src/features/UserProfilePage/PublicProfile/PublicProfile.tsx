@@ -14,6 +14,7 @@ import { GENDER_OPTIONS } from "@/constants/gender";
 import { useUpdateUserMutation } from "@/services";
 import { User } from "@/store";
 import styles from "./PublicProfile.module.css";
+import { useAuthUser } from "@/hooks/useAuthUser";
 
 export interface PublicProfileFormData {
 	firstName?: string;
@@ -38,6 +39,7 @@ interface PublicProfileProps {
 
 const PublicProfile: React.FC<PublicProfileProps> = ({ user }) => {
 	const [updateUser, { isLoading }] = useUpdateUserMutation();
+	const { authUser } = useAuthUser();
 
 	const {
 		register,
