@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import { Providers } from "../store/provider";
 import Header from "@/components/Layout/Header/Header";
 import Footer from "../components/Layout/Footer/Footer";
+import { Suspense } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/index.css";
 
@@ -22,9 +23,11 @@ export default function RootLayout({
 		<html lang="en">
 			<body>
 				<Providers>
-					<Header />
-					{children}
-					<Footer />
+					<Suspense fallback={<div>Loading...</div>}>
+						<Header />
+						{children}
+						<Footer />
+					</Suspense>
 					<ToastContainer />
 				</Providers>
 			</body>
