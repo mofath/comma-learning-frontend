@@ -1,5 +1,5 @@
 import React from "react";
-import { Question, Reply } from "@/types/Question";
+import { Question } from "@/types/Question";
 import styles from "./QuestionDetail.module.css";
 import UserAvatarCard from "@/components/User/UserAvatarCard/UserAvatarCard";
 import { BiSolidMessage as ReplyIcon } from "react-icons/bi";
@@ -56,7 +56,10 @@ const QuestionDetail: React.FC<QuestionDetailProps> = ({
 		<div className={styles["question-detail"]}>
 			{/* Question */}
 			<div className={styles["question-detail__question"]}>
-				<UserAvatarCard user={question.user} age={formatTimeAgo(question.createdAt)} />
+				<UserAvatarCard
+					user={question.user}
+					age={formatTimeAgo(question.createdAt)}
+				/>
 				<div className={styles["question__text"]}>{question.text}</div>
 			</div>
 			{/* Replies */}
@@ -65,7 +68,10 @@ const QuestionDetail: React.FC<QuestionDetailProps> = ({
 					{repliesData?.data?.map((reply: any) => {
 						return (
 							<div className={styles["question__reply"]}>
-								<UserAvatarCard user={reply.user} age={formatTimeAgo(reply?.createdAt)} />
+								<UserAvatarCard
+									user={reply.user}
+									age={formatTimeAgo(reply?.createdAt)}
+								/>
 								<div className={styles["question__text"]}>{reply.text}</div>
 							</div>
 						);

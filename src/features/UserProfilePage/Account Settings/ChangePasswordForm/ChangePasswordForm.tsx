@@ -15,7 +15,7 @@ interface ChangePasswordFormData {
 }
 
 interface ChangePasswordFormProps {
-	userId?: string;
+	userId?: number;
 }
 
 const schema = generateValidationSchema([

@@ -21,11 +21,7 @@ import { useSelector } from "react-redux";
 import { selectedAuthUser } from "@/store";
 import "./CoursePreviewPage.css";
 
-interface CoursePreviewProps {
-	watchMode?: boolean;
-}
-
-const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
+const CoursePreviewPage = () => {
 	const [activeChapterIndex, setActiveChapterIndex] = useState(0);
 	const { courseId } = useParams<{ courseId: string }>();
 	const { authUser } = useAuthUser();
@@ -39,6 +35,12 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 	const { data: courseData, isLoading } = useCourseQuery({ id: courseId });
 
 	const [viewCourse] = useViewCourseMutation();
+
+	const handleVideoClick = (chapterIndex: number, videoIndex: number) => {
+		// Logic to handle video click
+		console.log(`Chapter: ${chapterIndex}, Video: ${videoIndex}`);
+		setActiveChapterIndex(chapterIndex);
+	};
 
 	useEffect(
 		() => {
@@ -60,7 +62,8 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 				<div className="course-preview-page__left-side">
 					<VideoPlayer
 						videoUrl={courseData?.chapters[activeChapterIndex]?.videoUrl}
-						poster={!watchMode ? courseData?.posterUrl : undefined}
+						posterUrl={courseData?.posterUrl}
+						watchMode={false}
 					/>
 					<CourseVideoDescription
 						description={courseData?.description}
@@ -87,8 +90,8 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 					<CourseContentSection
 						chapters={courseData?.chapters || []}
 						isUserAlreadyEnrolled={isUserEnrolled?.enrolled || false}
-						setActiveChapterIndex={setActiveChapterIndex}
 						completedChapter={[]}
+						handleVideoClick={handleVideoClick}
 					/>
 				</div>
 			</div>
@@ -114,4 +117,4 @@ const CoursePreview: React.FC<CoursePreviewProps> = ({ watchMode = false }) => {
 	);
 };
 
-export default CoursePreview;
+export default CoursePreviewPage;

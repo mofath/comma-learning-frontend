@@ -1,7 +1,7 @@
 import React from "react";
-import StarRating from "@/components/ui/StarRating/StarRating";
 import RatingProgressBar from "@/components/ui/RatingProgressBar/RatingProgressBar";
 import styles from "./CourseFeedback.module.css";
+import StarRatingSummary from "@/components/ui/StarRatingSummary/StarRatingSummary";
 
 interface CourseFeedbackProps {
 	totalReviews?: number;
@@ -27,7 +27,7 @@ const CourseFeedback: React.FC<CourseFeedbackProps> = ({
 			{/* Star rating */}
 			<div className={styles["course-feedback__rating"]}>
 				<div className={styles["course-feedback__star-rating"]}>
-					<StarRating
+					<StarRatingSummary
 						rating={parseFloat(overallRating)}
 						reviewsCount={totalReviews}
 					/>

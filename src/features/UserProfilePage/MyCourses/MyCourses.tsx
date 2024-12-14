@@ -1,9 +1,11 @@
 import React from "react";
 import { CourseCard } from "@/components/Courses/CourseCard/CourseCard";
 import styles from "./MyCourses.module.css";
-import { userEnrolledCoursesData } from "@/__mocks__/data/user";
 
 const MyCourses: React.FC = () => {
+	// @TODO: fetch user enrolled courses
+	const userEnrolledCoursesData: any[] = [];
+
 	return (
 		<div className={styles["my-courses"]}>
 			<div className={styles["my-courses__header"]}>

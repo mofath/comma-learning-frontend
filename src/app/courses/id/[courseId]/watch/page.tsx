@@ -19,7 +19,7 @@ interface ActiveVideo {
 	videoIndex: number;
 }
 
-const CoursePreview: React.FC = () => {
+const CourseWatchPage: React.FC = () => {
 	const [activeVideo, setActiveVideo] = useState<ActiveVideo>({
 		chapterIndex: 0,
 		videoIndex: 0,
@@ -73,7 +73,7 @@ const CoursePreview: React.FC = () => {
 							activeVideo.videoIndex
 						]?.url
 					}
-					poster={courseData?.posterUrl}
+					posterUrl={courseData?.posterUrl}
 					onTimeUpdate={(t) => setCurrentTimestamp(t)}
 				/>
 				<Tabs>
@@ -133,4 +133,4 @@ const CoursePreview: React.FC = () => {
 	);
 };
 
-export default CoursePreview;
+export default CourseWatchPage;

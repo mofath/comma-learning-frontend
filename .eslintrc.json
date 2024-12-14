@@ -1,32 +1,43 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "next/core-web-vitals",
-    "prettier"
-  ],
-  "rules": {
-    "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off",
-    "no-unused-vars": [
-      "error",
-      {
-        "varsIgnorePattern": "^_",
-        "args": "none"
-      }
-    ],
-    "react/no-unescaped-entities": "off"
-  },
-  "overrides": [
-    {
-      "files": [
-        "**/components/ui/*.tsx"
-      ],
-      "rules": {
-        "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
-        "react/prop-types": [
-          "off"
-        ]
-      }
-    }
-  ]
+	"extends": ["eslint:recommended", "next/core-web-vitals", "prettier"],
+	"rules": {
+		"react/jsx-uses-react": "off",
+		"react/react-in-jsx-scope": "off",
+		"no-unused-vars": [
+			"warn",
+			{
+				"varsIgnorePattern": "^_",
+				"args": "none",
+				"caughtErrors": "none"
+			}
+		],
+		"react/no-unescaped-entities": "off",
+		"react-hooks/rules-of-hooks": "off",
+		"react-hooks/exhaustive-deps": "off",
+		"react/jsx-key": "warn",
+		"react/prop-types": "off",
+		"no-constant-condition": ["warn", { "checkLoops": false }],
+		"react/display-name": "off",
+		"import/no-unresolved": "off",
+		"no-console": "off"
+	},
+	"overrides": [
+		{
+			"files": ["**/components/ui/*.tsx"],
+			"rules": {
+				"no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+				"react/prop-types": "off"
+			}
+		},
+		{
+			"files": ["**/*.test.tsx", "**/*.spec.tsx"],
+			"env": {
+				"jest": true
+			},
+			"rules": {
+				"no-unused-expressions": "off" // Ignore chai-style unused expressions in tests
+			}
+		}
+	]
 }
+

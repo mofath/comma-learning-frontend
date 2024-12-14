@@ -16,12 +16,13 @@ interface HelpCenterFormData {
 const HelpCenterPage = () => {
 	const {
 		register,
-		//  handleSubmit
+		control,
+		handleSubmit, // You should use this to handle form submission
 	} = useForm<HelpCenterFormData>();
 
-	// const onSubmit = (data: HelpCenterFormData) => {
-	// 	console.log("Signin form data: ", data);
-	// };
+	const onSubmit = (data: HelpCenterFormData) => {
+		console.log("Form submitted with: ", data);
+	};
 
 	return (
 		<div className={styles["help-center-page"]}>
@@ -37,7 +38,7 @@ const HelpCenterPage = () => {
 					</div>
 				</div>
 				<div className={styles["help-center-page__form-wrapper"]}>
-					<form>
+					<form onSubmit={handleSubmit(onSubmit)}>
 						<div className={styles["help-center__form-group"]}>
 							<Input
 								label={"Full name"}
@@ -61,7 +62,8 @@ const HelpCenterPage = () => {
 						<div className={styles["help-center__form-group"]}>
 							<FileUploader
 								label={"Attachment"}
-								// {...register("attachment")}
+								control={control} // Pass control here
+								name="attachment" // Provide name here
 							/>
 						</div>
 						<div className={styles["help-center__button-wrapper"]}>

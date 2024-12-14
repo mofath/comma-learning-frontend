@@ -14,14 +14,23 @@ export interface CourseReview {
 	user: User;
 }
 
+export interface UserReview {
+	id: number;
+	text: string;
+	rating: number;
+	courseId: number;
+	reviewer: User;
+	reviewee: User;
+}
+
 export interface ReviewSummary {
-    totalReviews: number;
-    oneStarCount: number;
-    twoStarCount: number;
-    threeStarCount: number;
-    fourStarCount: number;
-    fiveStarCount: number;
-    overallRating: string;
+	totalReviews: number;
+	oneStarCount: number;
+	twoStarCount: number;
+	threeStarCount: number;
+	fourStarCount: number;
+	fiveStarCount: number;
+	overallRating: string;
 }
 
 export interface CreateCourseReviewDto {

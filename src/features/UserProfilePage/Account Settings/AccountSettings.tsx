@@ -5,7 +5,7 @@ import ChangePasswordForm from "./ChangePasswordForm/ChangePasswordForm";
 
 interface AccountSettingProps {
 	email: string;
-	userId: string;
+	userId: number;
 }
 
 const AccountSettings: React.FC<AccountSettingProps> = ({ email, userId }) => {

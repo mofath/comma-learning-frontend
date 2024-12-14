@@ -2,7 +2,6 @@
 import { useInstructorsQuery } from "@/services/instructor.service";
 import InstructorCard from "../InstructorCard/InstructorCard";
 import styles from "./InstructorList.module.css";
-import { InstructorListItem } from "../InstructorCard/Instructor";
 import React from "react";
 
 interface InstructorsListProps {
@@ -34,7 +33,7 @@ const InstructorsList: React.FC<InstructorsListProps> = ({
 		<section className={styles["list-container"]}>
 			<div className={styles["list"]}>
 				{instructors &&
-					instructors.map((instructor: InstructorListItem) => (
+					instructors.map((instructor: any) => (
 						<InstructorCard key={instructor.id} {...instructor} />
 					))}
 			</div>

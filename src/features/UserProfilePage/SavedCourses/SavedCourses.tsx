@@ -1,9 +1,11 @@
 import React from "react";
 import styles from "./SavedCourses.module.css";
 import { CourseCard } from "@/components/Courses/CourseCard/CourseCard";
-import { userSavedCoursesDa } from "@/__mocks__/data/user";
 
 const SavedCourses = () => {
+	//@TODO: fetch userSavedCoursesDa
+	const userSavedCoursesDa: any[] = [];
+
 	return (
 		<div className={styles["saved-courses"]}>
 			<div className={styles["saved-courses__header"]}>

@@ -45,7 +45,7 @@ const UserProfile = () => {
 					<PublicProfile user={authUser} />
 					<AccountSetting
 						email={authUser?.email as string}
-						userId={authUser?.id as string}
+						userId={authUser?.id as number}
 					/>
 					<MyCourses />
 					<PodcastHistory />

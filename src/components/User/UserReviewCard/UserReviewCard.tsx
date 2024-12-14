@@ -1,25 +1,26 @@
 import React from "react";
 import styles from "./UserReviewCard.module.css";
 import UserAvatarCard from "@/components/User/UserAvatarCard/UserAvatarCard";
-import Review from "@/types/Review";
+import { UserReview } from "@/types/Review";
 
-type Props = {
-	review: Review;
-};
+interface UserReviewCardProps {
+	review: UserReview;
+}
 
-export default function UserReviewCard({ review }: Props) {
-	const { reviewee, reviewer, reviewContent } = review;
+const UserReviewCard: React.FC<UserReviewCardProps> = ({ review }) => {
 	return (
 		<section className={styles["user-review"]}>
 			<div className={styles["upper"]}>
-				<UserAvatarCard user={reviewee} />
-				<p className={styles["review-content"]}>{reviewContent}</p>
+				<UserAvatarCard user={review.reviewee} />
+				<p className={styles["review-content"]}>{review.text}</p>
 			</div>
 
 			<hr className={styles["separator"]} />
 			<div className={styles["lower"]}>
-				<UserAvatarCard user={reviewer} />
+				<UserAvatarCard user={review.reviewer} />
 			</div>
 		</section>
 	);
-}
+};
+
+export default UserReviewCard;

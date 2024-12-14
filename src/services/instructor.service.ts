@@ -36,7 +36,27 @@ export const instructorApiSlice = apiSlice.injectEndpoints({
 				};
 			},
 		}),
+		createInstructor: builder.mutation({
+			query: (instructorData) => {
+				const requestData = instructorData || {};
+				const formData = new FormData();
+				// Append each key-value pair from requestData to formData
+				for (const key in requestData) {
+					formData.append(key, requestData[key]);
+				}
+				return {
+					url: "/instructors",
+					method: "POST",
+					body: formData,
+				};
+			},
+		}),
 	}),
 });
 
-export const { useInstructorsQuery, useInstructorQuery } = instructorApiSlice;
+export const {
+	useInstructorsQuery,
+	useInstructorQuery,
+	useCreateInstructorMutation,
+} = instructorApiSlice;
+

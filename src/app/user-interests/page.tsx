@@ -44,11 +44,7 @@ const UserInterestPage: React.FC = () => {
 					className={styles["user-interests__skip-button"]}
 				>
 					<span>Skip to Comma</span>
-					<img
-						src={SkipIcon.src}
-						alt="Skip Icon"
-						className={styles["user-interests__skip-icon"]}
-					/>
+					<SkipIcon className={styles["user-interests__skip-icon"]} />
 				</Link>
 			</div>
 			<div className={styles["user-interests-page__content"]}>

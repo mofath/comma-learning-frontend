@@ -17,7 +17,7 @@ const NotesList: React.FC<NotesListProps> = ({ notesList }) => {
 				{/* Course image */}
 				<div className={styles["notes-list__course-image"]}>
 					<img
-						src={notesList.course.imageUrl}
+						src={notesList.course.posterUrl}
 						alt="course image"
 						width={0}
 						height={0}

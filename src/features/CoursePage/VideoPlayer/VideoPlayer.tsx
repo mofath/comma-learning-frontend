@@ -3,7 +3,8 @@ import styles from "./VideoPlayer.module.css";
 
 interface VideoPlayerProps {
     videoUrl: string;
-    poster?: string;
+    posterUrl?: string;
+    watchMode?: boolean;
     onTimeUpdate?: (timestamp: string) => void;
 }
 
@@ -12,7 +13,7 @@ export interface VideoPlayerHandle {
 }
 
 const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
-    ({ videoUrl, poster, onTimeUpdate }, ref) => {
+    ({ videoUrl, posterUrl, watchMode, onTimeUpdate }, ref) => {
         const videoRef = useRef<HTMLVideoElement>(null);
 
         useImperativeHandle(ref, () => ({
@@ -51,7 +52,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
                 controls
                 key={videoUrl}
                 className={styles["video-player__video"]}
-                poster={poster}
+                poster={posterUrl}
             >
                 <source src={videoUrl} type="video/mp4" />
             </video>

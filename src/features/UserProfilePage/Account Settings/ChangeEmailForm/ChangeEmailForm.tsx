@@ -14,7 +14,7 @@ interface ChangeEmailFormData {
 
 interface ChangeEmailFormProps {
 	email: string;
-	userId: string;
+	userId: number;
 }
 
 const schema = generateValidationSchema(["email"]);
